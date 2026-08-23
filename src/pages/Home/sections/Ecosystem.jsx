@@ -108,14 +108,14 @@ export default function Ecosystem() {
           </motion.div>
         </div>
 
-        {/* Right Column: Cards — normal flow on mobile, sticky-stack on desktop */}
+        {/* Right Column: Stacking Cards on Mobile and Desktop */}
         <div className="relative">
           {pillars.map((pillar, index) => (
             <div
               key={pillar.title}
-              className="relative mb-6 lg:mb-16 last:mb-0 lg:sticky"
+              className="relative mb-8 sm:mb-12 lg:mb-16 last:mb-0 sticky"
               style={{
-                top: `${96 + index * 26}px`,
+                top: `clamp(${68 + index * 12}px, 7vh + ${index * 14}px, ${96 + index * 24}px)`,
                 zIndex: index + 1,
               }}
             >
@@ -129,11 +129,11 @@ export default function Ecosystem() {
                   delay: index * 0.04,
                 }}
                 whileHover={cardHover}
-                className="bg-white rounded-[24px] p-6 sm:p-8 border border-slate-200/90 shadow-[0_12px_32px_-4px_rgba(0,0,0,0.08),0_4px_12px_rgba(0,0,0,0.04)] flex flex-col items-start transition-all duration-300 hover:border-slate-300 hover:shadow-[0_20px_48px_-6px_rgba(0,0,0,0.12)]"
+                className="bg-white rounded-2xl sm:rounded-[24px] p-5 sm:p-7 lg:p-8 border border-slate-200/90 shadow-[0_10px_28px_-4px_rgba(0,0,0,0.08),0_4px_10px_rgba(0,0,0,0.04)] flex flex-col items-start transition-all duration-300 hover:border-slate-300 hover:shadow-[0_20px_48px_-6px_rgba(0,0,0,0.12)]"
               >
                 {/* Header row: Icon, Tag & Step Number */}
-                <div className="w-full flex items-center justify-between mb-4 sm:mb-5">
-                  <div className="flex items-center gap-3">
+                <div className="w-full flex items-center justify-between mb-3.5 sm:mb-5">
+                  <div className="flex items-center gap-2.5 sm:gap-3">
                     <div
                       className="p-2 sm:p-2.5 rounded-xl flex items-center justify-center shadow-sm"
                       style={{ background: 'rgb(0, 86, 184)' }}
@@ -144,28 +144,28 @@ export default function Ecosystem() {
                       {pillar.tag}
                     </span>
                   </div>
-                  <span className="text-[11px] sm:text-[12px] font-mono font-bold text-slate-400 px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200/60">
+                  <span className="text-[10px] sm:text-[12px] font-mono font-bold text-slate-400 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-slate-100 border border-slate-200/60">
                     {pillar.step}
                   </span>
                 </div>
 
                 {/* Title & Subtitle */}
-                <h3 className="text-[18px] sm:text-[20px] font-extrabold text-slate-900 tracking-tight m-0 mb-1.5">
+                <h3 className="text-[16.5px] sm:text-[20px] font-extrabold text-slate-900 tracking-tight m-0 mb-1 sm:mb-1.5">
                   {pillar.title}
                 </h3>
-                <p className="text-[13px] sm:text-[14px] font-semibold text-[rgb(0,86,184)] m-0 mb-2.5 sm:mb-3">
+                <p className="text-[12.5px] sm:text-[14px] font-semibold text-[rgb(0,86,184)] m-0 mb-2 sm:mb-3">
                   {pillar.subtitle}
                 </p>
 
                 {/* Description */}
-                <p className="text-[13px] sm:text-[14px] leading-relaxed text-slate-500 m-0">
+                <p className="text-[12.5px] sm:text-[14px] leading-relaxed text-slate-500 m-0">
                   {pillar.desc}
                 </p>
               </motion.div>
             </div>
           ))}
-          {/* Scroll runway so the last sticky card has room to reach its position */}
-          <div className="hidden lg:block h-[15vh]" aria-hidden="true" />
+          {/* Scroll runway so the last sticky card has room to reach its stacked position */}
+          <div className="h-[20vh] sm:h-[15vh]" aria-hidden="true" />
         </div>
       </div>
     </section>
