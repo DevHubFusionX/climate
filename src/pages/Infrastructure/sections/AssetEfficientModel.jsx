@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { fadeInUp, cardVariant, cardHover } from '../../../utils/motion'
+import { fadeInUp, cardVariant, cardHover, viewportConfig } from '../../../utils/motion'
 import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 const partners = [
@@ -25,7 +25,7 @@ export default function AssetEfficientModel() {
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={viewportConfig}
             className="lg:col-span-6 text-left"
           >
             <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[1.5px] uppercase text-slate-400 mb-4">
@@ -35,6 +35,7 @@ export default function AssetEfficientModel() {
               text="An asset-efficient pathway to continental scale."
               as="h2"
               className="text-[26px] xs:text-[30px] sm:text-[36px] lg:text-[42px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0 mb-4 sm:mb-6"
+              delay={0.1}
               wordColorMap={{
                 'asset-efficient': 'rgb(0, 86, 184)',
                 scale: 'rgb(0, 86, 184)',
@@ -53,7 +54,7 @@ export default function AssetEfficientModel() {
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={viewportConfig}
             custom={1}
             className="lg:col-span-6"
           >
@@ -69,7 +70,7 @@ export default function AssetEfficientModel() {
                     variants={cardVariant}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, amount: 0.15 }}
+                    viewport={viewportConfig}
                     custom={index}
                     whileHover={cardHover}
                     className="p-3.5 rounded-xl bg-[#f8f9fa] border border-slate-100 text-xs font-semibold text-slate-800 flex items-center gap-2 hover:bg-blue-50/50 hover:border-blue-100 transition-colors"

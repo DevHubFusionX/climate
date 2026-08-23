@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Zap, ShieldCheck, Layers, Activity, Star } from 'lucide-react'
-import { fadeInUp, cardVariant, cardHover } from '../../../utils/motion'
+import { fadeInUp, cardVariant, cardHover, viewportConfig } from '../../../utils/motion'
 import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 export default function Challenge() {
@@ -40,7 +40,7 @@ export default function Challenge() {
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={viewportConfig}
             className="lg:col-span-7"
           >
             {/* Pill Badge */}
@@ -52,7 +52,7 @@ export default function Challenge() {
               theme="light"
               text="Products shouldn't lose value before delivery."
               className="text-[26px] xs:text-[30px] sm:text-[38px] lg:text-[46px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0"
-              delay={0.15}
+              delay={0.1}
             />
           </motion.div>
 
@@ -60,7 +60,7 @@ export default function Challenge() {
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={viewportConfig}
             custom={1}
             className="lg:col-span-5 text-[14px] sm:text-[15.5px] leading-relaxed text-slate-500 m-0 lg:pt-14 font-normal"
           >
@@ -75,7 +75,7 @@ export default function Challenge() {
             variants={cardVariant}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
+            viewport={viewportConfig}
             custom={0}
             whileHover={cardHover}
             className="lg:col-span-5 relative overflow-hidden rounded-[28px] p-8 sm:p-9 flex flex-col justify-between shadow-xl transition-shadow duration-300 group min-h-[480px] lg:min-h-full border border-white/15"
@@ -159,7 +159,7 @@ export default function Challenge() {
                 variants={cardVariant}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.15 }}
+                viewport={viewportConfig}
                 custom={index + 1}
                 whileHover={cardHover}
                 className="bg-white rounded-[26px] p-8 sm:p-9 border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between min-h-[230px] group"

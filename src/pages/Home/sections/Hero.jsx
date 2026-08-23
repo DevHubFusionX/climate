@@ -23,10 +23,10 @@ export default function Hero() {
        Challenge section slides over this from below.
     ─────────────────────────────────────────────────────── */
     <div className="w-full bg-white">
-      <div className="sticky top-0 z-[1] w-full h-screen min-h-screen overflow-hidden">
+      <div className="sticky top-0 z-[1] w-full h-[100dvh] min-h-[100dvh] overflow-hidden">
         {/* LQIP blur placeholder — visible instantly */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
           style={{
             backgroundImage: `url(${HERO_LQIP})`,
             filter: 'blur(12px)',
@@ -39,7 +39,7 @@ export default function Hero() {
           initial={{ scale: 1.05, opacity: 0 }}
           animate={{ scale: bgLoaded ? 1 : 1.05, opacity: bgLoaded ? 1 : 0 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-[transform,opacity]"
           style={{ backgroundImage: `url(${heroBgSrc})` }}
         />
 

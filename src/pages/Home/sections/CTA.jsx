@@ -1,17 +1,18 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import ctaImg from '../../../assets/images/Cta.jpeg'
-import { fadeInUp } from '../../../utils/motion'
+import { fadeInUp, buttonHover, buttonTap, viewportConfig } from '../../../utils/motion'
 import WordColorReveal from '../../../components/ui/WordColorReveal'
 import Button from '../../../components/ui/Button'
 import SkewButton from '../../../components/ui/SkewButton'
 
 export default function CTA() {
   const serviceTags = [
-    'SOLAR REFRIGERATION',
-    'ELECTRIC FLEET TRANSIT',
-    'IOT TEMPERATURE SURVEILLANCE',
-    'DISTRIBUTED COLD STORAGE',
+    'Solar Cold Hubs',
+    'Active IoT Telemetry',
+    'Electric Fleet Integration',
+    'DaraOS Visibility Layer',
+    'Multi-Zone Routing',
   ]
 
   return (
@@ -20,7 +21,7 @@ export default function CTA() {
         variants={fadeInUp}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={viewportConfig}
         className="relative w-full rounded-none sm:rounded-[40px] overflow-hidden shadow-2xl"
         style={{
           backgroundImage: `url(${ctaImg})`,

@@ -1,17 +1,17 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import ctaImg from '../../../assets/images/Cta.jpeg'
-import { fadeInUp } from '../../../utils/motion'
+import { fadeInUp, viewportConfig } from '../../../utils/motion'
 import WordColorReveal from '../../../components/ui/WordColorReveal'
 import Button from '../../../components/ui/Button'
 import SkewButton from '../../../components/ui/SkewButton'
 
 export default function CTA() {
   const partnerTypes = [
-    'CLIMATE INVESTORS',
-    'EV MANUFACTURERS',
-    'SOLAR COMPANIES',
-    'INFRASTRUCTURE FUNDS',
+    'COLD STORAGE OPERATORS',
+    'FLEET OWNERS',
+    'CLEAN ENERGY PARTNERS',
+    'CAPITAL & INVESTORS',
     'DFIs & OPERATORS',
   ]
 
@@ -21,7 +21,7 @@ export default function CTA() {
         variants={fadeInUp}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={viewportConfig}
         className="relative w-full rounded-none sm:rounded-[40px] overflow-hidden shadow-2xl"
         style={{
           backgroundImage: `url(${ctaImg})`,

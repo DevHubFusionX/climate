@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { fadeInUp, cardVariant, cardHover } from '../../../utils/motion'
+import { fadeInUp, cardVariant, cardHover, viewportConfig } from '../../../utils/motion'
 import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 const pillars = [
@@ -36,7 +36,7 @@ export default function InfrastructureOpportunity() {
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={viewportConfig}
           >
             <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[1.5px] uppercase text-slate-400 mb-4">
               The Opportunity
@@ -45,6 +45,7 @@ export default function InfrastructureOpportunity() {
               text="What kind of cold chain should Africa build?"
               as="h2"
               className="text-[26px] xs:text-[30px] sm:text-[36px] lg:text-[42px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0 mb-3 sm:mb-0"
+              delay={0.1}
               wordColorMap={{
                 cold: 'rgb(0, 86, 184)',
                 chain: 'rgb(0, 86, 184)',
@@ -56,7 +57,7 @@ export default function InfrastructureOpportunity() {
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={viewportConfig}
             custom={1}
             className="lg:pt-8"
           >
@@ -74,7 +75,7 @@ export default function InfrastructureOpportunity() {
               variants={cardVariant}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
+              viewport={viewportConfig}
               custom={index}
               whileHover={cardHover}
               className="relative rounded-2xl p-7 bg-[#fbfbfa] border border-slate-200/60 flex flex-col justify-between min-h-[260px] group shadow-sm hover:shadow-md transition-shadow duration-300"

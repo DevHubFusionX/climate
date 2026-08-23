@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { fadeInUp } from '../../../utils/motion'
+import { fadeInUp, viewportConfig } from '../../../utils/motion'
 import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 const visionPillars = [
@@ -33,7 +33,7 @@ export default function Vision() {
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={viewportConfig}
             className="text-[12px] font-bold tracking-[2.5px] uppercase text-white/40 mb-6 m-0"
           >
             Our Vision
@@ -44,6 +44,7 @@ export default function Vision() {
             as="h2"
             theme="dark"
             className="m-0 font-extrabold tracking-tight leading-[1.12] text-[26px] xs:text-[32px] sm:text-[40px] lg:text-[52px]"
+            delay={0.1}
             wordColorMap={{
               warmer: '#4ade80',
               world: '#4ade80',
@@ -61,7 +62,7 @@ export default function Vision() {
                 variants={fadeInUp}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.15 }}
+                viewport={viewportConfig}
                 custom={index}
                 className="flex items-center justify-between py-3 text-white/85 text-[15px] font-medium tracking-tight"
               >
@@ -75,7 +76,7 @@ export default function Vision() {
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={viewportConfig}
             custom={3}
             className="m-0 text-[15px] leading-relaxed text-white/65 max-w-[440px]"
           >

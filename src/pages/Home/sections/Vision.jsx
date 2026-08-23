@@ -1,9 +1,10 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ShieldCheck, Radio, Truck, ArrowRight } from 'lucide-react'
-import { fadeInUp, cardVariant, cardHover, buttonHover, buttonTap } from '../../../utils/motion'
+import { Sun, Truck, Activity, ArrowRight } from 'lucide-react'
+import { fadeInUp, cardVariant, cardHover, buttonHover, buttonTap, viewportConfig } from '../../../utils/motion'
 import WordColorReveal from '../../../components/ui/WordColorReveal'
 import Button from '../../../components/ui/Button'
+import SkewButton from '../../../components/ui/SkewButton'
 
 const capabilities = [
   {
@@ -11,7 +12,7 @@ const capabilities = [
     keyword: 'Preserve',
     title: 'Precision Temperature Control',
     desc: 'Solar-powered cold storage and active refrigeration protecting product value from origin to destination.',
-    icon: ShieldCheck,
+    icon: Sun,
     tag: 'Solar Cooling',
   },
   {
@@ -71,7 +72,7 @@ export default function Vision() {
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={viewportConfig}
             className="max-w-2xl"
           >
             <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[1.5px] uppercase text-white/50 mb-3.5">
@@ -82,7 +83,7 @@ export default function Vision() {
               theme="dark"
               text="Move temperature-sensitive products smarter."
               className="text-[24px] xs:text-[28px] sm:text-[34px] lg:text-[38px] font-extrabold leading-[1.18] tracking-tight text-white m-0 mb-3 sm:mb-0"
-              delay={0.15}
+              delay={0.1}
             />
           </motion.div>
 
@@ -90,7 +91,7 @@ export default function Vision() {
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={viewportConfig}
             custom={1}
             className="text-[13.5px] sm:text-[15px] leading-relaxed text-white/75 m-0 max-w-md font-normal"
           >
@@ -108,7 +109,7 @@ export default function Vision() {
                 variants={cardVariant}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.15 }}
+                viewport={viewportConfig}
                 custom={index}
                 whileHover={cardHover}
                 className="group relative rounded-2xl bg-white/[0.06] hover:bg-white/[0.1] border border-white/10 hover:border-white/20 p-7 flex flex-col justify-between transition-all duration-300 backdrop-blur-sm shadow-sm hover:shadow-[0_12px_30px_rgba(0,0,0,0.15)]"

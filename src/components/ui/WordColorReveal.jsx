@@ -28,18 +28,18 @@ export default function WordColorReveal({
   theme = 'light',
   baseColor,
   revealColor,
-  delay = 0.15,
-  stagger = 0.07,
-  duration = 0.55,
-  blur = true,
-  yOffset = 4,
+  delay = 0.1,
+  stagger = 0.04,
+  duration = 0.45,
+  blur = false,
+  yOffset = 3,
   wordColorMap = {},
   trigger = 'inView',
-  viewport = { once: true, amount: 0.2 },
+  viewport = { once: true, amount: 0.05, margin: '0px 0px -40px 0px' },
   ...props
 }) {
   const isDark = theme === 'dark'
-  const computedBaseColor = baseColor || (isDark ? 'rgba(255, 255, 255, 0.2)' : 'rgba(15, 23, 42, 0.18)')
+  const computedBaseColor = baseColor || (isDark ? 'rgba(255, 255, 255, 0.25)' : 'rgba(15, 23, 42, 0.22)')
   const computedRevealColor = revealColor || (isDark ? '#ffffff' : '#0f172a')
 
   const lines = Array.isArray(text) ? text : [text]
@@ -57,15 +57,15 @@ export default function WordColorReveal({
   const wordVariants = {
     hidden: {
       color: computedBaseColor,
-      opacity: 0.28,
+      opacity: 0.3,
       y: yOffset,
-      filter: blur ? 'blur(3px)' : 'blur(0px)',
+      ...(blur ? { filter: 'blur(3px)' } : {}),
     },
     visible: (customColor) => ({
       color: customColor || computedRevealColor,
       opacity: 1,
       y: 0,
-      filter: 'blur(0px)',
+      ...(blur ? { filter: 'blur(0px)' } : {}),
       transition: {
         duration,
         ease: easeDara,
@@ -107,7 +107,7 @@ export default function WordColorReveal({
                   key={`${lineIndex}-${wordIndex}`}
                   variants={wordVariants}
                   custom={customColor}
-                  className="inline-block mr-[0.26em] will-change-[color,opacity,transform,filter]"
+                  className="inline-block mr-[0.26em] will-change-[color,opacity,transform] translate-z-0"
                 >
                   {word}
                 </motion.span>

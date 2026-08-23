@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { fadeInUp, cardVariant, cardHover } from '../../../utils/motion'
+import { fadeInUp, cardVariant, cardHover, viewportConfig } from '../../../utils/motion'
 import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 const markets = [
@@ -22,7 +22,7 @@ export default function WhyDara() {
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={viewportConfig}
             className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[1.5px] uppercase text-slate-400 mb-4"
           >
             Market Position
@@ -31,6 +31,7 @@ export default function WhyDara() {
             text="At the intersection of Africa's fastest-growing sectors."
             as="h2"
             className="text-[26px] xs:text-[30px] sm:text-[36px] lg:text-[42px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0 mb-3 sm:mb-4"
+            delay={0.1}
             wordColorMap={{
               intersection: 'rgb(0, 86, 184)',
               'fastest-growing': '#4ade80',
@@ -40,7 +41,7 @@ export default function WhyDara() {
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={viewportConfig}
             custom={2}
             className="text-[13.5px] sm:text-[16px] leading-relaxed text-slate-500 m-0 font-normal"
           >
@@ -56,7 +57,7 @@ export default function WhyDara() {
               variants={cardVariant}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
+              viewport={viewportConfig}
               custom={index}
               whileHover={cardHover}
               className="bg-[#fbfbfa] rounded-2xl p-7 border border-slate-200/60 flex flex-col justify-between min-h-[190px] shadow-sm hover:shadow-md transition-shadow duration-300"
@@ -76,7 +77,7 @@ export default function WhyDara() {
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={viewportConfig}
           className="border-t border-slate-200/60 pt-16 max-w-3xl"
         >
           <p className="text-[22px] sm:text-[26px] font-extrabold leading-[1.3] tracking-tight text-slate-900 m-0 mb-4">

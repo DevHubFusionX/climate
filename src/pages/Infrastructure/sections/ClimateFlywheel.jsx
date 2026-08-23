@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { fadeInUp, cardVariant, cardHover } from '../../../utils/motion'
+import { fadeInUp, cardVariant, cardHover, viewportConfig } from '../../../utils/motion'
 import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 const flywheelSteps = [
@@ -10,6 +10,7 @@ const flywheelSteps = [
     desc: 'Growing enterprise cargo increases volume across key regional delivery corridors.',
   },
   {
+    num: '02',
     step: '02',
     title: 'Asset Utilization',
     desc: 'Higher density improves utilization across solar cold rooms and electric vans.',
@@ -36,7 +37,7 @@ export default function ClimateFlywheel() {
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={viewportConfig}
             className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[1.5px] uppercase text-slate-400 mb-4"
           >
             Network Effects
@@ -45,6 +46,7 @@ export default function ClimateFlywheel() {
             text="The Dara Climate Flywheel"
             as="h2"
             className="text-[26px] xs:text-[30px] sm:text-[36px] lg:text-[44px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0 mb-3 sm:mb-4"
+            delay={0.1}
             wordColorMap={{
               Climate: 'rgb(0, 86, 184)',
               Flywheel: '#4ade80',
@@ -54,7 +56,7 @@ export default function ClimateFlywheel() {
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={viewportConfig}
             custom={2}
             className="text-[14px] sm:text-[16px] leading-relaxed text-slate-500 m-0 font-normal"
           >
@@ -70,7 +72,7 @@ export default function ClimateFlywheel() {
               variants={cardVariant}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
+              viewport={viewportConfig}
               custom={index}
               whileHover={cardHover}
               className="bg-white rounded-2xl p-7 border border-slate-200/60 shadow-sm flex flex-col justify-between min-h-[240px] group hover:shadow-md transition-shadow duration-300"

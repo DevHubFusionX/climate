@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { fadeInUp, cardVariant, cardHover } from '../../../utils/motion'
+import { fadeInUp, cardVariant, cardHover, viewportConfig } from '../../../utils/motion'
 import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 const industries = [
@@ -43,7 +43,7 @@ function FeaturedCard({ item }) {
       variants={cardVariant}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.15 }}
+      viewport={viewportConfig}
       custom={0}
       whileHover={cardHover}
       className="relative rounded-2xl overflow-hidden aspect-[3/4] lg:aspect-auto lg:row-span-4 shadow-sm hover:shadow-md transition-shadow duration-300 group"
@@ -73,7 +73,7 @@ function SmallCard({ item, index }) {
       variants={cardVariant}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.15 }}
+      viewport={viewportConfig}
       custom={index}
       whileHover={cardHover}
       className="relative rounded-xl overflow-hidden group shadow-sm hover:shadow-md transition-shadow duration-300"
@@ -107,7 +107,7 @@ export default function Industries() {
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={viewportConfig}
           >
             <div className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[1.2px] uppercase text-slate-400 mb-5">
               <span className="w-4 h-4 bg-slate-200 rounded-[4px] flex items-center justify-center">

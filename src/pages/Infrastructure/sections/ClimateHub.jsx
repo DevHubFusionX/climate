@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Play, ArrowRight, Check, Activity } from 'lucide-react'
-import { fadeInUp, cardVariant, cardHover, buttonHover, buttonTap } from '../../../utils/motion'
+import { fadeInUp, cardVariant, cardHover, buttonHover, buttonTap, viewportConfig } from '../../../utils/motion'
 import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 export default function ClimateHub() {
@@ -16,7 +16,7 @@ export default function ClimateHub() {
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={viewportConfig}
             className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[1.5px] uppercase text-slate-400 mb-3"
           >
             Dara Climate Hub
@@ -25,6 +25,7 @@ export default function ClimateHub() {
             text="Climate Hub Operations"
             as="h2"
             className="text-[26px] xs:text-[30px] sm:text-[36px] lg:text-[46px] font-extrabold leading-[1.12] tracking-tight text-slate-900 m-0 mb-3"
+            delay={0.1}
             wordColorMap={{
               Climate: 'rgb(0, 86, 184)',
             }}
@@ -33,7 +34,7 @@ export default function ClimateHub() {
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={viewportConfig}
             custom={2}
             className="text-[14px] sm:text-[16px] leading-relaxed text-slate-500 m-0 font-normal"
           >
@@ -48,7 +49,7 @@ export default function ClimateHub() {
             variants={cardVariant}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
+            viewport={viewportConfig}
             custom={0}
             whileHover={cardHover}
             className="lg:col-span-7 relative overflow-hidden rounded-[32px] p-8 bg-[#081028] text-white min-h-[400px] flex flex-col justify-between shadow-xl hover:shadow-2xl transition-shadow duration-300 group"
@@ -93,7 +94,7 @@ export default function ClimateHub() {
             variants={cardVariant}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
+            viewport={viewportConfig}
             custom={1}
             whileHover={cardHover}
             className="lg:col-span-5 relative overflow-hidden rounded-[32px] p-8 text-white min-h-[400px] flex flex-col justify-between shadow-xl hover:shadow-2xl transition-shadow duration-300 group"
@@ -140,7 +141,7 @@ export default function ClimateHub() {
             variants={cardVariant}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
+            viewport={viewportConfig}
             custom={2}
             whileHover={cardHover}
             className="lg:col-span-5 relative overflow-hidden rounded-[32px] p-8 text-white min-h-[380px] flex flex-col justify-between shadow-xl hover:shadow-2xl transition-shadow duration-300 group"
@@ -208,7 +209,7 @@ export default function ClimateHub() {
             variants={cardVariant}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
+            viewport={viewportConfig}
             custom={3}
             whileHover={cardHover}
             className="lg:col-span-7 relative overflow-hidden rounded-[32px] p-8 bg-white text-slate-900 min-h-[380px] flex flex-col justify-between shadow-sm border border-slate-200/70 hover:shadow-xl transition-shadow duration-300 group"

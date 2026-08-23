@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowUpRight, Sun, Zap, Radio, ShieldCheck, Activity } from 'lucide-react'
-import { fadeInUp, cardVariant, cardHover, buttonHover, buttonTap } from '../../../utils/motion'
+import { fadeInUp, cardVariant, cardHover, buttonHover, buttonTap, viewportConfig } from '../../../utils/motion'
 import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 export default function InfrastructureStack() {
@@ -45,7 +45,7 @@ export default function InfrastructureStack() {
               variants={fadeInUp}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={viewportConfig}
             >
               <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[1.5px] uppercase text-slate-400 mb-3 sm:mb-4">
                 Climate Infrastructure Stack
@@ -100,7 +100,7 @@ export default function InfrastructureStack() {
                 variants={cardVariant}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.15 }}
+                viewport={viewportConfig}
                 custom={0}
                 whileHover={cardHover}
                 className="relative bg-[#081028] rounded-[32px] sm:rounded-[36px] p-8 sm:p-10 text-white flex flex-col justify-between min-h-[340px] shadow-xl overflow-hidden group cursor-pointer border border-white/10"
@@ -145,7 +145,7 @@ export default function InfrastructureStack() {
                 variants={cardVariant}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.15 }}
+                viewport={viewportConfig}
                 custom={1}
                 whileHover={cardHover}
                 className="relative bg-[#4ade80] rounded-[32px] sm:rounded-[36px] p-7 sm:p-8 text-[#081028] flex flex-col justify-between min-h-[340px] shadow-lg overflow-hidden group"
@@ -203,7 +203,7 @@ export default function InfrastructureStack() {
                 variants={cardVariant}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.15 }}
+                viewport={viewportConfig}
                 custom={2}
                 whileHover={cardHover}
                 className="bg-white rounded-[28px] p-6 sm:p-7 shadow-[0_4px_24px_rgba(0,0,0,0.03)] border border-slate-200/60 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-md hover:border-slate-300/80"
@@ -232,7 +232,7 @@ export default function InfrastructureStack() {
                 variants={cardVariant}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.15 }}
+                viewport={viewportConfig}
                 custom={3}
                 whileHover={cardHover}
                 className="bg-white rounded-[28px] p-6 sm:p-7 shadow-[0_4px_24px_rgba(0,0,0,0.03)] border border-slate-200/60 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-md hover:border-slate-300/80"
@@ -257,7 +257,7 @@ export default function InfrastructureStack() {
                 variants={cardVariant}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.15 }}
+                viewport={viewportConfig}
                 custom={4}
                 whileHover={cardHover}
                 className="bg-white rounded-[28px] p-6 sm:p-7 shadow-[0_4px_24px_rgba(0,0,0,0.03)] border border-slate-200/60 flex flex-col justify-between min-h-[220px] transition-all duration-300 hover:shadow-md hover:border-slate-300/80"

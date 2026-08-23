@@ -77,7 +77,7 @@ export default function Ecosystem() {
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.05, margin: '0px 0px -40px 0px' }}
           className="lg:sticky lg:top-28"
         >
           <div className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[1.2px] uppercase text-slate-400 mb-5">
@@ -93,7 +93,7 @@ export default function Ecosystem() {
             theme="light"
             text="One connected system for moving, cooling and monitoring products."
             className="text-[26px] xs:text-[30px] sm:text-[36px] lg:text-[44px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0 mb-4 sm:mb-6"
-            delay={0.15}
+            delay={0.1}
           />
           <p className="text-[14px] sm:text-[16px] leading-relaxed text-slate-500 m-0 mb-6 sm:mb-8">
             Five integrated pillars — clean energy, intelligent refrigeration, electric mobility, IoT intelligence, and DaraOS — working as one cold-chain network.
@@ -107,25 +107,25 @@ export default function Ecosystem() {
           />
         </motion.div>
 
-        {/* Right Column: Stacking Cards with Blur Reveal */}
+        {/* Right Column: Cards (relative on mobile, stacked sticky on lg desktop) */}
         <div className="relative flex flex-col gap-6 sm:gap-8 pb-16 lg:pb-24">
           {pillars.map((pillar, index) => (
             <motion.div
               key={pillar.title}
-              initial={{ opacity: 0, y: 44, scale: 0.93, filter: 'blur(12px)' }}
-              whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
-              viewport={{ once: true, amount: 0.2 }}
+              initial={{ opacity: 0, y: 24, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.05, margin: '0px 0px -40px 0px' }}
               transition={{
-                duration: 0.75,
+                duration: 0.55,
                 ease: [0.16, 1, 0.3, 1],
-                delay: index * 0.08,
+                delay: index * 0.05,
               }}
               whileHover={cardHover}
               style={{
-                top: `calc(100px + ${index * 22}px)`,
                 zIndex: index + 1,
+                '--stack-offset': `${index * 22}px`,
               }}
-              className="sticky bg-white/95 backdrop-blur-md rounded-[24px] p-6 sm:p-8 border border-slate-200/80 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.04)] flex flex-col items-start transition-all duration-300 hover:border-slate-300 hover:shadow-[0_16px_40px_-6px_rgba(0,0,0,0.1)] will-change-[transform,opacity,filter]"
+              className="relative lg:sticky lg:top-[calc(100px+var(--stack-offset))] bg-white/95 backdrop-blur-md rounded-[24px] p-6 sm:p-8 border border-slate-200/80 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.04)] flex flex-col items-start transition-all duration-300 hover:border-slate-300 hover:shadow-[0_16px_40px_-6px_rgba(0,0,0,0.1)] will-change-[transform,opacity]"
             >
               {/* Header row: Icon, Tag & Step Number */}
               <div className="w-full flex items-center justify-between mb-4 sm:mb-5">

@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { fadeInUp, cardVariant, cardHover } from '../../../utils/motion'
+import { fadeInUp, cardVariant, cardHover, viewportConfig } from '../../../utils/motion'
 import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 export default function HowItWorks() {
@@ -13,7 +13,7 @@ export default function HowItWorks() {
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={viewportConfig}
             className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[1.5px] uppercase text-neutral-400 mb-4"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[rgb(0,86,184)]" />
@@ -24,13 +24,13 @@ export default function HowItWorks() {
             theme="light"
             text="How a Dara Climate-Smart Shipment Works"
             className="text-[26px] xs:text-[30px] sm:text-[36px] lg:text-[44px] font-extrabold leading-[1.15] tracking-tight text-neutral-900 m-0 mb-3 sm:mb-4"
-            delay={0.15}
+            delay={0.1}
           />
           <motion.p
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={viewportConfig}
             custom={2}
             className="text-[14px] sm:text-[16px] leading-relaxed text-neutral-500 max-w-[620px] m-0"
           >
@@ -45,7 +45,7 @@ export default function HowItWorks() {
             variants={cardVariant}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
+            viewport={viewportConfig}
             custom={0}
             whileHover={cardHover}
             className="relative rounded-[28px] p-8 lg:p-9 border border-[rgb(0,86,184)]/20 shadow-[0_20px_50px_-12px_rgba(0,86,184,0.3)] flex flex-col items-start min-h-[280px] lg:col-start-1 lg:row-start-1 overflow-hidden"
@@ -80,7 +80,7 @@ export default function HowItWorks() {
             variants={cardVariant}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
+            viewport={viewportConfig}
             custom={1}
             whileHover={cardHover}
             className="bg-white rounded-[28px] p-8 lg:p-9 border border-neutral-200/60 shadow-[0_15px_40px_-15px_rgba(0,0,0,0.05)] flex flex-col items-start min-h-[280px] lg:col-start-2 lg:row-start-1"
@@ -103,7 +103,7 @@ export default function HowItWorks() {
             variants={cardVariant}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
+            viewport={viewportConfig}
             custom={2}
             whileHover={cardHover}
             className="relative rounded-[28px] p-8 lg:p-9 border border-neutral-200/60 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.08)] flex flex-col items-start min-h-[320px] lg:col-start-3 lg:row-start-1 overflow-hidden"
@@ -151,7 +151,7 @@ export default function HowItWorks() {
             variants={cardVariant}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
+            viewport={viewportConfig}
             custom={3}
             whileHover={cardHover}
             className="bg-white rounded-[28px] p-8 lg:p-9 border border-neutral-200/60 shadow-[0_15px_40px_-15px_rgba(0,0,0,0.05)] flex flex-col items-start min-h-[280px] lg:col-start-2 lg:row-start-2"
@@ -175,7 +175,7 @@ export default function HowItWorks() {
             variants={cardVariant}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
+            viewport={viewportConfig}
             custom={4}
             whileHover={cardHover}
             className="relative rounded-[28px] p-8 lg:p-9 border border-neutral-800/50 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] flex flex-col items-start min-h-[280px] lg:col-start-3 lg:row-start-2 overflow-hidden"

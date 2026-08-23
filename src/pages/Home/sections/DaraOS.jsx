@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { fadeInUp, cardVariant, cardHover } from '../../../utils/motion'
+import { fadeInUp, cardVariant, cardHover, viewportConfig } from '../../../utils/motion'
 import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 const capabilities = [
@@ -74,7 +74,7 @@ export default function DaraOS() {
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={viewportConfig}
           >
             <div className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[1.2px] uppercase text-white/50 mb-5">
               <span className="w-4 h-4 bg-white/15 rounded-[4px] flex items-center justify-center">
@@ -89,14 +89,14 @@ export default function DaraOS() {
               theme="dark"
               text="The intelligence connecting everything."
               className="text-[26px] xs:text-[30px] sm:text-[36px] lg:text-[48px] font-extrabold leading-[1.12] tracking-tight text-white m-0 mb-3 sm:mb-0"
-              delay={0.15}
+              delay={0.1}
             />
           </motion.div>
           <motion.p
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={viewportConfig}
             custom={1}
             className="text-[14px] sm:text-[16px] leading-relaxed text-white/75 m-0 max-w-[440px]"
           >
@@ -112,7 +112,7 @@ export default function DaraOS() {
               variants={cardVariant}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
+              viewport={viewportConfig}
               custom={index}
               whileHover={cardHover}
               className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/15 flex flex-col justify-between min-h-[220px] transition-colors duration-300 hover:bg-white/[0.14] hover:border-white/25 shadow-sm"
