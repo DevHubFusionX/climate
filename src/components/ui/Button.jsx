@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 /**
  * ArrowDotPillButton (Button)
@@ -8,7 +9,8 @@ import { motion } from 'framer-motion'
  * pulses on hover, fully configurable with themes (dark, brand, emerald, white).
  *
  * @param {string} text - Button label text (e.g. "Let's go!", "Ship With Dara")
- * @param {string} href - Optional link URL (renders as <a> if provided)
+ * @param {string} href - Optional link URL (renders as <a> or react-router <Link> if provided)
+ * @param {string} to - Optional React Router destination
  * @param {function} onClick - Click handler
  * @param {'dark'|'brand'|'emerald'|'white'} variant - Preset styling theme
  * @param {string} iconBg - Custom background color for the circular badge
@@ -19,6 +21,7 @@ export default function Button({
   text = "let's go!",
   children,
   href,
+  to,
   onClick,
   variant = 'dark',
   iconBg,
@@ -27,12 +30,13 @@ export default function Button({
   ...props
 }) {
   const label = children || text
+  const targetLink = to || href
 
   // Variant themes
   const variantStyles = {
     dark: {
       btnBg: 'bg-[#1d2129] hover:bg-[#272c37] text-white shadow-[0_4px_16px_rgba(0,0,0,0.18)]',
-      defaultIconBg: '#f59aff',
+      defaultIconBg: '#4ade80',
       defaultDotColor: '#1d2129',
       border: 'border border-slate-700/50',
     },
@@ -60,17 +64,22 @@ export default function Button({
   const resolvedIconBg = iconBg || currentTheme.defaultIconBg
   const resolvedDotColor = dotColor || currentTheme.defaultDotColor
 
-  const Component = href ? motion.a : motion.button
+  const handleClick = (e) => {
+    if (onClick) onClick(e)
 
-  return (
-    <Component
-      href={href}
-      onClick={onClick}
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      className={`group relative inline-flex items-center justify-between gap-3 pl-6 pr-1.5 py-1.5 rounded-full no-underline cursor-pointer transition-all duration-300 select-none ${currentTheme.btnBg} ${currentTheme.border} ${className}`}
-      {...props}
-    >
+    if (targetLink && targetLink.startsWith('#')) {
+      e.preventDefault()
+      const element = document.getElementById(targetLink.slice(1))
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+  }
+
+  const isInternalRoute = targetLink && targetLink.startsWith('/') && !targetLink.startsWith('//')
+
+  const buttonContent = (
+    <>
       {/* Label Text */}
       <span className="font-semibold text-[14px] sm:text-[15px] tracking-[0.6px] whitespace-nowrap">
         {label}
@@ -103,6 +112,44 @@ export default function Button({
           <circle cx="5.73583" cy="17.3868" r="1.5" fill={resolvedDotColor} />
         </svg>
       </span>
-    </Component>
+    </>
+  )
+
+  const commonClass = `group relative inline-flex items-center justify-between gap-3 pl-6 pr-1.5 py-1.5 rounded-full no-underline cursor-pointer transition-all duration-300 select-none ${currentTheme.btnBg} ${currentTheme.border} ${className}`
+
+  if (isInternalRoute) {
+    return (
+      <Link to={targetLink} className={commonClass} onClick={handleClick} {...props}>
+        {buttonContent}
+      </Link>
+    )
+  }
+
+  if (targetLink) {
+    return (
+      <motion.a
+        href={targetLink}
+        onClick={handleClick}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        className={commonClass}
+        {...props}
+      >
+        {buttonContent}
+      </motion.a>
+    )
+  }
+
+  return (
+    <motion.button
+      type="button"
+      onClick={handleClick}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      className={commonClass}
+      {...props}
+    >
+      {buttonContent}
+    </motion.button>
   )
 }

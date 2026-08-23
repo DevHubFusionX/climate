@@ -1,9 +1,10 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import heroBg from '../../../assets/images/hero.jpeg'
-import { fadeInUp, buttonHover, buttonTap } from '../../../utils/motion'
+import { fadeInUp } from '../../../utils/motion'
 import WordColorReveal from '../../../components/ui/WordColorReveal'
 import Button from '../../../components/ui/Button'
+import SkewButton from '../../../components/ui/SkewButton'
 
 export default function Hero() {
   return (
@@ -22,7 +23,7 @@ export default function Hero() {
         />
 
         {/* Dark navy overlay */}
-        <div className="absolute inset-0 bg-[rgba(10,18,45,0.52)]" />
+        <div className="absolute inset-0 bg-[rgba(10,18,45,0.56)]" />
 
         {/* Content — sits above bg + overlay */}
         <div className="relative z-10 flex h-full items-center">
@@ -35,9 +36,9 @@ export default function Hero() {
                 initial="hidden"
                 animate="visible"
                 custom={0.1}
-                className="mb-6 inline-flex items-center gap-2 text-[11px] font-bold tracking-[1.5px] uppercase text-white/60"
+                className="mb-6 inline-flex items-center gap-2 text-[11px] font-bold tracking-[1.5px] uppercase text-white/70"
               >
-                Introducing the Dara Climate-Tech Ecosystem &bull; Solar &amp; Electric
+                Clean Energy &bull; Intelligent Refrigeration &bull; Smarter Movement
               </motion.div>
 
               {/* Headline with word-by-word text color reveal */}
@@ -46,34 +47,38 @@ export default function Hero() {
                 theme="dark"
                 trigger="load"
                 text={[
-                  "Building Africa's cold chain.",
-                  "In one unified network."
+                  "Building Africa's",
+                  "Climate-Smart",
+                  "Cold Chain."
                 ]}
                 delay={0.25}
                 stagger={0.09}
                 duration={0.65}
                 baseColor="rgba(255, 255, 255, 0.2)"
                 revealColor="#ffffff"
-                className="m-0 text-[48px] font-extrabold leading-[1.15] tracking-[-1.2px] text-white md:text-[40px] sm:text-[32px]"
+                className="m-0 text-[48px] font-extrabold leading-[1.12] tracking-[-1.2px] text-white md:text-[42px] sm:text-[34px]"
+                wordColorMap={{
+                  'Climate-Smart': '#4ade80',
+                }}
               />
             </div>
 
             {/* Right column */}
-            <div className="lg:pt-[54px]">
+            <div className="lg:pt-[44px]">
               {/* Sub-text with progressive word color illumination */}
               <WordColorReveal
                 as="p"
                 theme="dark"
                 trigger="load"
-                text="Move and preserve temperature-sensitive products with a smarter, cleaner cold chain. Solar refrigeration, electric vehicles, IoT intelligence, and logistics software — all in one network."
-                delay={0.7}
-                stagger={0.025}
-                duration={0.5}
+                text="Dara is building a technology-enabled cold-chain ecosystem combining solar-powered refrigeration, electric refrigerated vans and trucks, IoT temperature monitoring, cold storage and intelligent logistics software to move and preserve temperature-sensitive products across our delivery network."
+                delay={0.65}
+                stagger={0.02}
+                duration={0.45}
                 baseColor="rgba(255, 255, 255, 0.25)"
                 revealColor="rgba(255, 255, 255, 0.88)"
                 blur={false}
                 yOffset={4}
-                className="mb-9 max-w-[480px] text-[18px] leading-relaxed text-white/85 sm:text-[16px]"
+                className="mb-9 max-w-[500px] text-[16px] sm:text-[17px] leading-relaxed text-white/85"
               />
 
               {/* CTA buttons */}
@@ -91,14 +96,11 @@ export default function Hero() {
                   iconBg="#ffffff"
                   dotColor="rgb(0, 86, 184)"
                 />
-                <motion.a
-                  whileHover={buttonHover}
-                  whileTap={buttonTap}
-                  href="#technology"
-                  className="inline-block rounded-full border border-white/35 bg-transparent px-7 py-[13px] text-[15px] font-semibold text-white no-underline hover:border-white hover:bg-white/10 transition-colors duration-200"
-                >
-                  Explore technology
-                </motion.a>
+                <SkewButton
+                  text="Explore DaraOS"
+                  href="#daraos"
+                  variant="hero"
+                />
               </motion.div>
             </div>
           </div>

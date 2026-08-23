@@ -73,3 +73,110 @@ body {
   animation: dotArrowPulse 0.9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
+/* ── Skew Button Animation (Dara Theme) ───────────────── */
+.skew-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 9999px;
+  user-select: none;
+}
+
+.skew-btn::before,
+.skew-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 100%;
+  transform: skew(15deg);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  z-index: -1;
+}
+
+.skew-btn::before {
+  left: -12px;
+}
+
+.skew-btn::after {
+  right: -12px;
+}
+
+.skew-btn:hover::before,
+.skew-btn:hover::after {
+  width: 58%;
+}
+
+/* Variant 1: Hero / Glass / Dark context */
+.skew-btn-hero {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+}
+.skew-btn-hero::before {
+  background: rgb(0, 86, 184);
+}
+.skew-btn-hero::after {
+  background: rgb(0, 48, 120);
+}
+.skew-btn-hero span {
+  color: #ffffff;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.skew-btn-hero:hover {
+  border-color: #4ade80;
+  box-shadow: 0 4px 20px rgba(0, 86, 184, 0.4);
+}
+.skew-btn-hero:hover span {
+  color: #4ade80;
+}
+
+/* Variant 2: Brand / Light context */
+.skew-btn-brand {
+  border: 1.5px solid rgb(0, 86, 184);
+  background: transparent;
+}
+.skew-btn-brand::before {
+  background: rgb(0, 86, 184);
+}
+.skew-btn-brand::after {
+  background: rgb(0, 58, 135);
+}
+.skew-btn-brand span {
+  color: rgb(0, 86, 184);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.skew-btn-brand:hover {
+  border-color: rgb(0, 86, 184);
+  box-shadow: 0 4px 18px rgba(0, 86, 184, 0.25);
+}
+.skew-btn-brand:hover span {
+  color: #ffffff;
+}
+
+/* Variant 3: Green sustainability */
+.skew-btn-emerald {
+  border: 1.5px solid #16a34a;
+  background: transparent;
+}
+.skew-btn-emerald::before {
+  background: #16a34a;
+}
+.skew-btn-emerald::after {
+  background: #0f3a2c;
+}
+.skew-btn-emerald span {
+  color: #16a34a;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.skew-btn-emerald:hover span {
+  color: #4ade80;
+}
+
