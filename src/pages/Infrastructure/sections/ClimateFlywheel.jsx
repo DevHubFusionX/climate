@@ -10,7 +10,6 @@ const flywheelSteps = [
     desc: 'Growing enterprise cargo increases volume across key regional delivery corridors.',
   },
   {
-    num: '02',
     step: '02',
     title: 'Asset Utilization',
     desc: 'Higher density improves utilization across solar cold rooms and electric vans.',
@@ -25,6 +24,17 @@ const flywheelSteps = [
     title: 'Unit Economics',
     desc: 'Displacing expensive diesel fuel lowers cost-per-kilogram, unlocking more customer demand.',
   },
+]
+
+const partners = [
+  'Fleet Owners',
+  'EV Manufacturers',
+  'Solar Energy Companies',
+  'Cold Storage Operators',
+  'Equipment Financiers',
+  'IoT & Sensor Providers',
+  'Infrastructure Funds',
+  'Development Finance (DFIs)',
 ]
 
 export default function ClimateFlywheel() {
@@ -64,8 +74,8 @@ export default function ClimateFlywheel() {
           </motion.p>
         </div>
 
-        {/* ── Flywheel Interactive Sequence with Stagger Delay ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* ── Flywheel Interactive Sequence ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {flywheelSteps.map((item, index) => (
             <motion.div
               key={item.title}
@@ -97,6 +107,47 @@ export default function ClimateFlywheel() {
             </motion.div>
           ))}
         </div>
+
+        {/* ── Asset-Efficient Partner Integration ── */}
+        <motion.div
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+          className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/60 shadow-sm"
+        >
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-slate-100">
+            <div>
+              <span className="text-[10px] font-bold tracking-widest uppercase text-slate-400 block mb-1">
+                Capital-Efficient Scale
+              </span>
+              <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 m-0 tracking-tight">
+                Powered by a connected, multi-partner network
+              </h3>
+            </div>
+            <div className="text-xs font-semibold px-3.5 py-1.5 rounded-full bg-blue-50 text-[rgb(0,86,184)] self-start lg:self-center">
+              Tech + Demand + Operating Standards
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6">
+            {partners.map((partner, index) => (
+              <motion.div
+                key={partner}
+                variants={cardVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportConfig}
+                custom={index}
+                whileHover={cardHover}
+                className="p-3 rounded-xl bg-[#f8f9fa] border border-slate-100 text-xs font-semibold text-slate-800 flex items-center gap-2 hover:bg-blue-50/50 hover:border-blue-100 transition-colors"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-[rgb(0,86,184)] shrink-0" />
+                <span>{partner}</span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   )

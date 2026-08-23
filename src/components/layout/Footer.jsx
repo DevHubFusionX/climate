@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import Button from '../ui/Button'
-import SkewButton from '../ui/SkewButton'
 
 function useVisible(threshold = 0.08) {
   const [visible, setVisible] = useState(false)
@@ -67,7 +65,7 @@ export default function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="relative z-10 bg-[rgb(0,86,184)] text-white px-4 sm:px-10 lg:px-20 pt-14 sm:pt-20 md:pt-24 pb-12 font-sans overflow-hidden border-t border-white/10"
+      className="relative z-10 bg-[rgb(0,86,184)] text-white px-4 sm:px-10 lg:px-20 pt-8 sm:pt-12 pb-12 font-sans overflow-hidden border-t border-white/10"
       style={{
         background: 'linear-gradient(175deg, rgb(0, 86, 184) 0%, rgb(0, 58, 135) 60%, rgb(0, 32, 90) 100%)'
       }}
@@ -83,41 +81,6 @@ export default function Footer() {
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
-
-        {/* ── TOP SECTION: Large Headline & Action ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start pb-8 sm:pb-12 md:pb-16 border-b border-white/15">
-          <div className="lg:col-span-8 flex flex-col items-start text-left">
-            <div className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-bold tracking-[1.5px] uppercase text-white/60 mb-3 sm:mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#4ade80]" />
-              Climate-Smart Cold Chain
-            </div>
-            <h2 className="text-[22px] xs:text-[26px] sm:text-[38px] lg:text-[48px] font-extrabold leading-[1.15] tracking-tight text-white m-0 max-w-2xl">
-              Start moving and preserving with Dara.
-            </h2>
-            <div className="mt-5 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-4 w-full sm:w-auto">
-              <Button
-                text="Partner with Dara"
-                href="mailto:hello@daraexpress.com?subject=Partner%20With%20Dara"
-                variant="white"
-                iconBg="#0056b8"
-                dotColor="#ffffff"
-                className="w-full sm:w-auto justify-center"
-              />
-              <SkewButton
-                text="Explore Technology"
-                to="/"
-                variant="hero"
-                className="w-full sm:w-auto text-center"
-              />
-            </div>
-          </div>
-
-          <div className="lg:col-span-4 flex flex-col items-start lg:items-end text-left lg:text-right lg:pt-4">
-            <p className="text-blue-100/75 text-xs sm:text-base leading-relaxed max-w-sm m-0">
-              Clean energy, intelligent refrigeration, electric mobility, and logistics software for Africa's temperature-sensitive economy.
-            </p>
-          </div>
-        </div>
 
         {/* ── MOBILE STREAMLINED CONTACT BAR (Mobile Only) ── */}
         <div className="flex md:hidden flex-col gap-4 py-7 border-b border-white/15 text-left">

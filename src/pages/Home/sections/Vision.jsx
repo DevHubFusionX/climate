@@ -35,12 +35,13 @@ const capabilities = [
 
 export default function Vision() {
   return (
-    <section
-      className="relative z-10 w-full mx-0 sm:mx-6 lg:mx-8 my-8 sm:my-10 rounded-none sm:rounded-[36px] overflow-hidden shadow-sm"
-      style={{
-        background: 'linear-gradient(145deg, rgb(0, 75, 165) 0%, rgb(0, 52, 125) 60%, rgb(3, 30, 80) 100%)',
-      }}
-    >
+    <section className="relative z-10 w-full px-0 sm:px-6 lg:px-8 my-8 sm:my-10">
+      <div
+        className="relative w-full max-w-7xl mx-auto rounded-none sm:rounded-[36px] overflow-hidden shadow-sm"
+        style={{
+          background: 'linear-gradient(145deg, rgb(0, 75, 165) 0%, rgb(0, 52, 125) 60%, rgb(3, 30, 80) 100%)',
+        }}
+      >
       {/* Ambient background glow accents */}
       <motion.div
         animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.3, 0.2] }}
@@ -179,6 +180,7 @@ export default function Vision() {
             Active cold-chain logistics across key delivery zones
           </div>
         </motion.div>
+      </div>
       </div>
     </section>
   )
