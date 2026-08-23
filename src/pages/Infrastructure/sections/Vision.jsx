@@ -1,0 +1,91 @@
+import React from 'react'
+import { motion } from 'framer-motion'
+import { fadeInUp } from '../../../utils/motion'
+
+const visionPillars = [
+  'Renewable-powered',
+  'Electrified',
+  'Digitally connected',
+  'Data-driven',
+  'Distributed',
+  'Measurable',
+]
+
+export default function Vision() {
+  return (
+    <section
+      className="relative z-10 rounded-[28px] md:rounded-[36px] mx-4 lg:mx-8 my-10 overflow-hidden"
+      style={{ background: 'rgb(0, 86, 184)' }}
+    >
+      {/* Subtle radial glow */}
+      <motion.div
+        animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.25, 0.15] }}
+        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        className="pointer-events-none absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full"
+        style={{ background: 'radial-gradient(circle, rgba(150,210,255,0.6) 0%, transparent 70%)' }}
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-8 lg:px-16 py-20 lg:py-28 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+        {/* Left Column */}
+        <div>
+          <motion.p
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="text-[12px] font-bold tracking-[2.5px] uppercase text-white/40 mb-6 m-0"
+          >
+            Our Vision
+          </motion.p>
+
+          <motion.h2
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            custom={1}
+            className="m-0 font-extrabold tracking-tight leading-[1.12]"
+            style={{ fontSize: 'clamp(36px, 4.8vw, 60px)' }}
+          >
+            <span className="text-white/50">A cold chain</span>
+            <br />
+            <span className="text-white/25">built for a</span>
+            <br />
+            <span className="text-white">warmer world.</span>
+          </motion.h2>
+        </div>
+
+        {/* Right Column */}
+        <div className="flex flex-col gap-8">
+          <ul className="m-0 p-0 list-none flex flex-col divide-y divide-white/10">
+            {visionPillars.map((label, index) => (
+              <motion.li
+                key={label}
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.15 }}
+                custom={index}
+                className="flex items-center justify-between py-3 text-white/85 text-[15px] font-medium tracking-tight"
+              >
+                <span>{label}</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#4ade80]" />
+              </motion.li>
+            ))}
+          </ul>
+
+          <motion.p
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            custom={3}
+            className="m-0 text-[15px] leading-relaxed text-white/65 max-w-[440px]"
+          >
+            From farms preserving harvest at the source to medicines monitored continuously in transit — infrastructure that is clean, resilient, and verifiable.
+          </motion.p>
+        </div>
+      </div>
+    </section>
+  )
+}
