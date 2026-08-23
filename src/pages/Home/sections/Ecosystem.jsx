@@ -73,95 +73,101 @@ export default function Ecosystem() {
     <section className="relative z-10 bg-[#f4f3ef] px-4 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-32">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-20 items-start">
         {/* Left Column: Sticky Title block */}
-        <motion.div
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.05, margin: '0px 0px -40px 0px' }}
-          className="lg:sticky lg:top-28"
-        >
-          <div className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[1.2px] uppercase text-slate-400 mb-5">
-            <span className="w-4 h-4 bg-slate-200 rounded-[4px] flex items-center justify-center">
-              <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-                <rect width="8" height="8" rx="1.5" fill="#94a3b8" />
-              </svg>
-            </span>
-            The Dara Climate-Tech Ecosystem
-          </div>
-          <WordColorReveal
-            as="h2"
-            theme="light"
-            text="One connected system for moving, cooling and monitoring products."
-            className="text-[26px] xs:text-[30px] sm:text-[36px] lg:text-[44px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0 mb-4 sm:mb-6"
-            delay={0.1}
-          />
-          <p className="text-[14px] sm:text-[16px] leading-relaxed text-slate-500 m-0 mb-6 sm:mb-8">
-            Five integrated pillars — clean energy, intelligent refrigeration, electric mobility, IoT intelligence, and DaraOS — working as one cold-chain network.
-          </p>
-          <Button
-            text="Explore technology"
-            href="#technology"
-            variant="dark"
-            iconBg="rgb(0, 86, 184)"
-            dotColor="#ffffff"
-          />
-        </motion.div>
+        <div className="lg:sticky lg:top-28 self-start">
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.05, margin: '0px 0px -40px 0px' }}
+          >
+            <div className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[1.2px] uppercase text-slate-400 mb-5">
+              <span className="w-4 h-4 bg-slate-200 rounded-[4px] flex items-center justify-center">
+                <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                  <rect width="8" height="8" rx="1.5" fill="#94a3b8" />
+                </svg>
+              </span>
+              The Dara Climate-Tech Ecosystem
+            </div>
+            <WordColorReveal
+              as="h2"
+              theme="light"
+              text="One connected system for moving, cooling and monitoring products."
+              className="text-[26px] xs:text-[30px] sm:text-[36px] lg:text-[44px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0 mb-4 sm:mb-6"
+              delay={0.1}
+            />
+            <p className="text-[14px] sm:text-[16px] leading-relaxed text-slate-500 m-0 mb-6 sm:mb-8">
+              Five integrated pillars — clean energy, intelligent refrigeration, electric mobility, IoT intelligence, and DaraOS — working as one cold-chain network.
+            </p>
+            <Button
+              text="Explore technology"
+              href="#technology"
+              variant="dark"
+              iconBg="rgb(0, 86, 184)"
+              dotColor="#ffffff"
+            />
+          </motion.div>
+        </div>
 
-        {/* Right Column: Cards (relative on mobile, stacked sticky on lg desktop) */}
-        <div className="relative flex flex-col gap-6 sm:gap-8 pb-16 lg:pb-24">
+        {/* Right Column: Cards — normal flow on mobile, sticky-stack on desktop */}
+        <div className="relative">
           {pillars.map((pillar, index) => (
-            <motion.div
+            <div
               key={pillar.title}
-              initial={{ opacity: 0, y: 24, scale: 0.98 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, amount: 0.05, margin: '0px 0px -40px 0px' }}
-              transition={{
-                duration: 0.55,
-                ease: [0.16, 1, 0.3, 1],
-                delay: index * 0.05,
-              }}
-              whileHover={cardHover}
+              className="relative mb-6 lg:mb-16 last:mb-0 lg:sticky"
               style={{
+                top: `${96 + index * 26}px`,
                 zIndex: index + 1,
-                '--stack-offset': `${index * 22}px`,
               }}
-              className="relative lg:sticky lg:top-[calc(100px+var(--stack-offset))] bg-white/95 backdrop-blur-md rounded-[24px] p-6 sm:p-8 border border-slate-200/80 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.04)] flex flex-col items-start transition-all duration-300 hover:border-slate-300 hover:shadow-[0_16px_40px_-6px_rgba(0,0,0,0.1)] will-change-[transform,opacity]"
             >
-              {/* Header row: Icon, Tag & Step Number */}
-              <div className="w-full flex items-center justify-between mb-4 sm:mb-5">
-                <div className="flex items-center gap-3">
-                  <div
-                    className="p-2 sm:p-2.5 rounded-xl flex items-center justify-center shadow-sm"
-                    style={{ background: 'rgb(0, 86, 184)' }}
-                  >
-                    {pillar.icon}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.08, margin: '0px 0px -30px 0px' }}
+                transition={{
+                  duration: 0.5,
+                  ease: [0.16, 1, 0.3, 1],
+                  delay: index * 0.04,
+                }}
+                whileHover={cardHover}
+                className="bg-white rounded-[24px] p-6 sm:p-8 border border-slate-200/90 shadow-[0_12px_32px_-4px_rgba(0,0,0,0.08),0_4px_12px_rgba(0,0,0,0.04)] flex flex-col items-start transition-all duration-300 hover:border-slate-300 hover:shadow-[0_20px_48px_-6px_rgba(0,0,0,0.12)]"
+              >
+                {/* Header row: Icon, Tag & Step Number */}
+                <div className="w-full flex items-center justify-between mb-4 sm:mb-5">
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="p-2 sm:p-2.5 rounded-xl flex items-center justify-center shadow-sm"
+                      style={{ background: 'rgb(0, 86, 184)' }}
+                    >
+                      {pillar.icon}
+                    </div>
+                    <span className="text-[10px] sm:text-[11px] font-bold tracking-wider text-slate-400 uppercase">
+                      {pillar.tag}
+                    </span>
                   </div>
-                  <span className="text-[10px] sm:text-[11px] font-bold tracking-wider text-slate-400 uppercase">
-                    {pillar.tag}
+                  <span className="text-[11px] sm:text-[12px] font-mono font-bold text-slate-400 px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200/60">
+                    {pillar.step}
                   </span>
                 </div>
-                <span className="text-[11px] sm:text-[12px] font-mono font-bold text-slate-400 px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200/60">
-                  {pillar.step}
-                </span>
-              </div>
 
-              {/* Title & Subtitle */}
-              <h3 className="text-[18px] sm:text-[20px] font-extrabold text-slate-900 tracking-tight m-0 mb-1.5">
-                {pillar.title}
-              </h3>
-              <p className="text-[13px] sm:text-[14px] font-semibold text-[rgb(0,86,184)] m-0 mb-2.5 sm:mb-3">
-                {pillar.subtitle}
-              </p>
+                {/* Title & Subtitle */}
+                <h3 className="text-[18px] sm:text-[20px] font-extrabold text-slate-900 tracking-tight m-0 mb-1.5">
+                  {pillar.title}
+                </h3>
+                <p className="text-[13px] sm:text-[14px] font-semibold text-[rgb(0,86,184)] m-0 mb-2.5 sm:mb-3">
+                  {pillar.subtitle}
+                </p>
 
-              {/* Description */}
-              <p className="text-[13px] sm:text-[14px] leading-relaxed text-slate-500 m-0">
-                {pillar.desc}
-              </p>
-            </motion.div>
+                {/* Description */}
+                <p className="text-[13px] sm:text-[14px] leading-relaxed text-slate-500 m-0">
+                  {pillar.desc}
+                </p>
+              </motion.div>
+            </div>
           ))}
+          {/* Scroll runway so the last sticky card has room to reach its position */}
+          <div className="hidden lg:block h-[15vh]" aria-hidden="true" />
         </div>
       </div>
     </section>
   )
 }
-
