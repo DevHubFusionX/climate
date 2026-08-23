@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { fadeInUp, cardVariant, cardHover } from '../../../utils/motion'
+import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 const partners = [
   'Fleet Owners',
@@ -30,9 +31,15 @@ export default function AssetEfficientModel() {
             <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[1.5px] uppercase text-slate-400 mb-4">
               Capital Efficiency
             </div>
-            <h2 className="text-[34px] sm:text-[42px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0 mb-6">
-              An asset-efficient pathway to continental scale.
-            </h2>
+            <WordColorReveal
+              text="An asset-efficient pathway to continental scale."
+              as="h2"
+              className="text-[34px] sm:text-[42px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0 mb-6"
+              wordColorMap={{
+                'asset-efficient': 'rgb(0, 86, 184)',
+                scale: 'rgb(0, 86, 184)',
+              }}
+            />
             <p className="text-[15px] sm:text-[16px] leading-relaxed text-slate-500 m-0 mb-6 font-normal">
               Dara doesn’t need to balance-sheet every truck, cold room, or solar installation. We provide the intelligence, demand aggregation, and operating standards connecting specialized asset owners into one unified network.
             </p>

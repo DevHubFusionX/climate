@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Package, Sun, Zap, Fuel, ShieldCheck, Leaf, ArrowUpRight } from 'lucide-react'
 import { fadeInUp, cardVariant, cardHover } from '../../../utils/motion'
+import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 const metrics = [
   {
@@ -63,9 +64,16 @@ export default function ImpactMeasurement() {
             <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[1.5px] uppercase text-slate-400 mb-4">
               Measurable Impact
             </div>
-            <h2 className="text-[34px] sm:text-[42px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0">
-              Turning commercial activity into climate impact.
-            </h2>
+            <WordColorReveal
+              text="Turning commercial activity into climate impact."
+              as="h2"
+              className="text-[34px] sm:text-[42px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0"
+              wordColorMap={{
+                commercial: 'rgb(0, 86, 184)',
+                climate: '#4ade80',
+                impact: '#4ade80',
+              }}
+            />
           </motion.div>
           <motion.div
             variants={fadeInUp}

@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { fadeInUp, cardVariant, cardHover } from '../../../utils/motion'
+import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 const pillars = [
   {
@@ -40,9 +41,16 @@ export default function InfrastructureOpportunity() {
             <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[1.5px] uppercase text-slate-400 mb-4">
               The Opportunity
             </div>
-            <h2 className="text-[34px] sm:text-[42px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0">
-              What kind of cold chain should Africa build?
-            </h2>
+            <WordColorReveal
+              text="What kind of cold chain should Africa build?"
+              as="h2"
+              className="text-[34px] sm:text-[42px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0"
+              wordColorMap={{
+                cold: 'rgb(0, 86, 184)',
+                chain: 'rgb(0, 86, 184)',
+                Africa: 'rgb(0, 86, 184)',
+              }}
+            />
           </motion.div>
           <motion.div
             variants={fadeInUp}

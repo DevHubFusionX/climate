@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Play, ArrowRight, Check, Activity } from 'lucide-react'
 import { fadeInUp, cardVariant, cardHover, buttonHover, buttonTap } from '../../../utils/motion'
+import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 export default function ClimateHub() {
   const [booked, setBooked] = useState(false)
@@ -20,16 +21,14 @@ export default function ClimateHub() {
           >
             Dara Climate Hub
           </motion.div>
-          <motion.h2
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            custom={1}
+          <WordColorReveal
+            text="Climate Hub Operations"
+            as="h2"
             className="text-[36px] sm:text-[46px] font-extrabold leading-[1.12] tracking-tight text-slate-900 m-0 mb-3"
-          >
-            Climate Hub Operations
-          </motion.h2>
+            wordColorMap={{
+              Climate: 'rgb(0, 86, 184)',
+            }}
+          />
           <motion.p
             variants={fadeInUp}
             initial="hidden"

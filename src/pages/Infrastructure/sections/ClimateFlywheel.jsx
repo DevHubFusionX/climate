@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { fadeInUp, cardVariant, cardHover } from '../../../utils/motion'
+import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 const flywheelSteps = [
   {
@@ -40,16 +41,15 @@ export default function ClimateFlywheel() {
           >
             Network Effects
           </motion.div>
-          <motion.h2
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            custom={1}
+          <WordColorReveal
+            text="The Dara Climate Flywheel"
+            as="h2"
             className="text-[34px] sm:text-[42px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0 mb-4"
-          >
-            The Dara Climate Flywheel
-          </motion.h2>
+            wordColorMap={{
+              Climate: 'rgb(0, 86, 184)',
+              Flywheel: '#4ade80',
+            }}
+          />
           <motion.p
             variants={fadeInUp}
             initial="hidden"

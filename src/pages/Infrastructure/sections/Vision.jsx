@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { fadeInUp } from '../../../utils/motion'
+import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 const visionPillars = [
   'Renewable-powered',
@@ -38,21 +39,18 @@ export default function Vision() {
             Our Vision
           </motion.p>
 
-          <motion.h2
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            custom={1}
+          <WordColorReveal
+            text={['A cold chain', 'built for a', 'warmer world.']}
+            as="h2"
+            theme="dark"
             className="m-0 font-extrabold tracking-tight leading-[1.12]"
             style={{ fontSize: 'clamp(36px, 4.8vw, 60px)' }}
-          >
-            <span className="text-white/50">A cold chain</span>
-            <br />
-            <span className="text-white/25">built for a</span>
-            <br />
-            <span className="text-white">warmer world.</span>
-          </motion.h2>
+            wordColorMap={{
+              warmer: '#4ade80',
+              world: '#4ade80',
+              'world.': '#4ade80',
+            }}
+          />
         </div>
 
         {/* Right Column */}
