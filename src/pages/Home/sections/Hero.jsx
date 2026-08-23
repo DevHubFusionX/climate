@@ -1,25 +1,46 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import heroBg from '../../../assets/images/hero.jpeg'
+import heroBgSrc from '../../../assets/images/hero.webp'
 import { fadeInUp } from '../../../utils/motion'
 import WordColorReveal from '../../../components/ui/WordColorReveal'
 import Button from '../../../components/ui/Button'
 import SkewButton from '../../../components/ui/SkewButton'
 
+// Tiny 20px-wide blurred LQIP — renders in <1ms, no network request
+const HERO_LQIP = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEBLAEsAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAANABQDAREAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMBAgT/xAAYEAADAQEAAAAAAAAAAAAAAAAAAQIREv/EABgBAQADAQAAAAAAAAAAAAAAAAEAAwUC/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oADAMBAAIRAxEAPwB8o16z4KnUEqUrhlmuMaUilZE4BVxDox//2Q=='
+
 export default function Hero() {
+  const [bgLoaded, setBgLoaded] = useState(false)
+
+  useEffect(() => {
+    const img = new Image()
+    img.src = heroBgSrc
+    img.onload = () => setBgLoaded(true)
+  }, [])
+
   return (
     /* ── Sticky full-viewport panel ───────────────────────
        Challenge section slides over this from below.
     ─────────────────────────────────────────────────────── */
     <div className="w-full bg-white">
       <div className="sticky top-0 z-[1] w-full h-screen min-h-screen overflow-hidden">
-        {/* Background image */}
+        {/* LQIP blur placeholder — visible instantly */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url(${HERO_LQIP})`,
+            filter: 'blur(12px)',
+            transform: 'scale(1.05)',
+          }}
+        />
+
+        {/* Full WebP — fades in once loaded */}
         <motion.div
           initial={{ scale: 1.05, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+          animate={{ scale: bgLoaded ? 1 : 1.05, opacity: bgLoaded ? 1 : 0 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroBg})` }}
+          style={{ backgroundImage: `url(${heroBgSrc})` }}
         />
 
         {/* Dark navy overlay */}
