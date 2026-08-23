@@ -2,6 +2,8 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { ShieldCheck, Radio, Truck, ArrowRight } from 'lucide-react'
 import { fadeInUp, cardVariant, cardHover, buttonHover, buttonTap } from '../../../utils/motion'
+import WordColorReveal from '../../../components/ui/WordColorReveal'
+import Button from '../../../components/ui/Button'
 
 const capabilities = [
   {
@@ -75,9 +77,13 @@ export default function Vision() {
             <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[1.5px] uppercase text-white/50 mb-3.5">
               What We Do
             </div>
-            <h2 className="text-[28px] sm:text-[34px] lg:text-[38px] font-extrabold leading-[1.18] tracking-tight text-white m-0">
-              Move temperature-sensitive products smarter.
-            </h2>
+            <WordColorReveal
+              as="h2"
+              theme="dark"
+              text="Move temperature-sensitive products smarter."
+              className="text-[28px] sm:text-[34px] lg:text-[38px] font-extrabold leading-[1.18] tracking-tight text-white m-0"
+              delay={0.15}
+            />
           </motion.div>
 
           <motion.p
@@ -150,15 +156,13 @@ export default function Vision() {
           className="flex flex-wrap items-center justify-between gap-4 pt-4"
         >
           <div className="flex flex-wrap items-center gap-3.5">
-            <motion.a
-              whileHover={buttonHover}
-              whileTap={buttonTap}
+            <Button
+              text="Ship With Dara"
               href="#partner"
-              className="inline-flex items-center gap-2 rounded-full px-7 py-3 text-[14px] font-bold text-[rgb(0,52,125)] bg-white no-underline shadow-[0_4px_16px_rgba(0,0,0,0.15)] transition-shadow duration-200 hover:bg-blue-50"
-            >
-              Ship With Dara
-              <ArrowRight className="w-4 h-4" />
-            </motion.a>
+              variant="white"
+              iconBg="rgb(0, 86, 184)"
+              dotColor="#ffffff"
+            />
             <motion.a
               whileHover={buttonHover}
               whileTap={buttonTap}

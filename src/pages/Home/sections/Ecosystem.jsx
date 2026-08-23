@@ -1,10 +1,13 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { fadeInUp, cardVariant, cardHover } from '../../../utils/motion'
+import { fadeInUp, cardHover } from '../../../utils/motion'
+import WordColorReveal from '../../../components/ui/WordColorReveal'
+import Button from '../../../components/ui/Button'
 
 export default function Ecosystem() {
   const pillars = [
     {
+      step: '01',
       tag: 'SOLAR ARRAY',
       title: 'Solar Refrigeration',
       subtitle: 'Keep products cold using the power of the sun.',
@@ -17,6 +20,7 @@ export default function Ecosystem() {
       ),
     },
     {
+      step: '02',
       tag: 'ELECTRIC MOBILITY',
       title: 'Electric Fleet',
       subtitle: 'Cleaner movement across our delivery zones.',
@@ -28,6 +32,7 @@ export default function Ecosystem() {
       ),
     },
     {
+      step: '03',
       tag: 'COLD STORAGE',
       title: 'Smart Cold Storage',
       subtitle: 'Cold infrastructure where businesses need it.',
@@ -39,6 +44,7 @@ export default function Ecosystem() {
       ),
     },
     {
+      step: '04',
       tag: 'IOT INTELLIGENCE',
       title: 'IoT Temperature Intelligence',
       subtitle: 'Visibility beyond vehicle location.',
@@ -50,6 +56,7 @@ export default function Ecosystem() {
       ),
     },
     {
+      step: '05',
       tag: 'DARAOS',
       title: 'DaraOS',
       subtitle: 'The intelligence layer connecting everything.',
@@ -81,45 +88,73 @@ export default function Ecosystem() {
             </span>
             The Dara Climate-Tech Ecosystem
           </div>
-          <h2 className="text-[36px] lg:text-[44px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0 mb-6">
-            One connected system for moving, cooling and monitoring products.
-          </h2>
-          <p className="text-[16px] leading-relaxed text-slate-500 m-0">
+          <WordColorReveal
+            as="h2"
+            theme="light"
+            text="One connected system for moving, cooling and monitoring products."
+            className="text-[36px] lg:text-[44px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0 mb-6"
+            delay={0.15}
+          />
+          <p className="text-[16px] leading-relaxed text-slate-500 m-0 mb-8">
             Five integrated pillars — clean energy, intelligent refrigeration, electric mobility, IoT intelligence, and DaraOS — working as one cold-chain network.
           </p>
+          <Button
+            text="Explore technology"
+            href="#technology"
+            variant="dark"
+            iconBg="rgb(0, 86, 184)"
+            dotColor="#ffffff"
+          />
         </motion.div>
 
-        {/* Right Column: Vertical List of Cards with Progressive Scroll Delay */}
-        <div className="flex flex-col gap-6">
+        {/* Right Column: Stacking Cards with Blur Reveal */}
+        <div className="relative flex flex-col gap-8 pb-16 lg:pb-24">
           {pillars.map((pillar, index) => (
             <motion.div
               key={pillar.title}
-              variants={cardVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
-              custom={index}
+              initial={{ opacity: 0, y: 44, scale: 0.93, filter: 'blur(12px)' }}
+              whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                duration: 0.75,
+                ease: [0.16, 1, 0.3, 1],
+                delay: index * 0.08,
+              }}
               whileHover={cardHover}
-              className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 flex flex-col items-start hover:shadow-md transition-shadow duration-300"
+              style={{
+                top: `calc(100px + ${index * 22}px)`,
+                zIndex: index + 1,
+              }}
+              className="sticky bg-white/95 backdrop-blur-md rounded-[24px] p-7 sm:p-8 border border-slate-200/80 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.04)] flex flex-col items-start transition-all duration-300 hover:border-slate-300 hover:shadow-[0_16px_40px_-6px_rgba(0,0,0,0.1)] will-change-[transform,opacity,filter]"
             >
-              {/* Icon Container */}
-              <div className="p-3 rounded-xl flex items-center justify-center mb-6" style={{ background: 'rgb(0, 86, 184)' }}>
-                {pillar.icon}
+              {/* Header row: Icon, Tag & Step Number */}
+              <div className="w-full flex items-center justify-between mb-5">
+                <div className="flex items-center gap-3">
+                  <div
+                    className="p-2.5 rounded-xl flex items-center justify-center shadow-sm"
+                    style={{ background: 'rgb(0, 86, 184)' }}
+                  >
+                    {pillar.icon}
+                  </div>
+                  <span className="text-[11px] font-bold tracking-wider text-slate-400 uppercase">
+                    {pillar.tag}
+                  </span>
+                </div>
+                <span className="text-[12px] font-mono font-bold text-slate-400 px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200/60">
+                  {pillar.step}
+                </span>
               </div>
 
-              {/* Tag / Category */}
-              <span className="text-[10px] font-bold tracking-wider text-slate-400 uppercase mb-3">
-                {pillar.tag}
-              </span>
+              {/* Title & Subtitle */}
+              <h3 className="text-[20px] font-extrabold text-slate-900 tracking-tight m-0 mb-1.5">
+                {pillar.title}
+              </h3>
+              <p className="text-[14px] font-semibold text-[rgb(0,86,184)] m-0 mb-3">
+                {pillar.subtitle}
+              </p>
 
-              {/* Title & Description */}
-              <p className="text-[15px] leading-relaxed text-slate-500 m-0">
-                <span className="font-extrabold text-slate-900 text-[16px] mr-2">
-                  {pillar.title}
-                </span>
-                <span className="font-semibold text-slate-700 mr-2">
-                  {pillar.subtitle}
-                </span>
+              {/* Description */}
+              <p className="text-[14px] leading-relaxed text-slate-500 m-0">
                 {pillar.desc}
               </p>
             </motion.div>
@@ -129,3 +164,4 @@ export default function Ecosystem() {
     </section>
   )
 }
+

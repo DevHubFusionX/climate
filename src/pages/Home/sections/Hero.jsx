@@ -2,6 +2,8 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import heroBg from '../../../assets/images/hero.jpeg'
 import { fadeInUp, buttonHover, buttonTap } from '../../../utils/motion'
+import WordColorReveal from '../../../components/ui/WordColorReveal'
+import Button from '../../../components/ui/Button'
 
 export default function Hero() {
   return (
@@ -38,32 +40,41 @@ export default function Hero() {
                 Introducing the Dara Climate-Tech Ecosystem &bull; Solar &amp; Electric
               </motion.div>
 
-              {/* Headline */}
-              <motion.h1
-                variants={fadeInUp}
-                initial="hidden"
-                animate="visible"
-                custom={0.25}
+              {/* Headline with word-by-word text color reveal */}
+              <WordColorReveal
+                as="h1"
+                theme="dark"
+                trigger="load"
+                text={[
+                  "Building Africa's cold chain.",
+                  "In one unified network."
+                ]}
+                delay={0.25}
+                stagger={0.09}
+                duration={0.65}
+                baseColor="rgba(255, 255, 255, 0.2)"
+                revealColor="#ffffff"
                 className="m-0 text-[48px] font-extrabold leading-[1.15] tracking-[-1.2px] text-white md:text-[40px] sm:text-[32px]"
-              >
-                Building Africa's cold chain.<br />
-                In one unified network.
-              </motion.h1>
+              />
             </div>
 
             {/* Right column */}
             <div className="lg:pt-[54px]">
-              <motion.p
-                variants={fadeInUp}
-                initial="hidden"
-                animate="visible"
-                custom={0.4}
+              {/* Sub-text with progressive word color illumination */}
+              <WordColorReveal
+                as="p"
+                theme="dark"
+                trigger="load"
+                text="Move and preserve temperature-sensitive products with a smarter, cleaner cold chain. Solar refrigeration, electric vehicles, IoT intelligence, and logistics software — all in one network."
+                delay={0.7}
+                stagger={0.025}
+                duration={0.5}
+                baseColor="rgba(255, 255, 255, 0.25)"
+                revealColor="rgba(255, 255, 255, 0.88)"
+                blur={false}
+                yOffset={4}
                 className="mb-9 max-w-[480px] text-[18px] leading-relaxed text-white/85 sm:text-[16px]"
-              >
-                Move and preserve temperature-sensitive products with a smarter,
-                cleaner cold chain. Solar refrigeration, electric vehicles, IoT
-                intelligence, and logistics software — all in one network.
-              </motion.p>
+              />
 
               {/* CTA buttons */}
               <motion.div
@@ -73,15 +84,13 @@ export default function Hero() {
                 custom={0.55}
                 className="flex flex-wrap items-center gap-4"
               >
-                <motion.a
-                  whileHover={buttonHover}
-                  whileTap={buttonTap}
+                <Button
+                  text="Ship With Dara"
                   href="#partner"
-                  className="inline-block rounded-full px-[30px] py-3.5 text-[15px] font-semibold text-white no-underline shadow-[0_4px_16px_rgba(0,86,184,0.35)] transition-shadow duration-200 hover:shadow-[0_6px_24px_rgba(0,86,184,0.5)]"
-                  style={{ background: 'rgb(0, 86, 184)' }}
-                >
-                  Ship With Dara
-                </motion.a>
+                  variant="brand"
+                  iconBg="#ffffff"
+                  dotColor="rgb(0, 86, 184)"
+                />
                 <motion.a
                   whileHover={buttonHover}
                   whileTap={buttonTap}

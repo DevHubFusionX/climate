@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { fadeInUp, cardVariant, cardHover, buttonHover, buttonTap } from '../../../utils/motion'
+import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 export default function ClimateImpact() {
   const scrollContainerRef = useRef(null)
@@ -100,16 +101,16 @@ export default function ClimateImpact() {
             <span className="w-2.5 h-2.5 rounded-[2px]" style={{ background: 'rgb(0, 86, 184)' }} />
             Solutions
           </motion.div>
-          <motion.h2
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            custom={1}
+          <WordColorReveal
+            as="h2"
+            theme="light"
+            text={[
+              "Better for Business.",
+              "Better for the Infrastructure Around Us."
+            ]}
+            delay={0.15}
             className="text-[36px] lg:text-[44px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0 mb-4"
-          >
-            Better for Business.<br />Better for the Infrastructure Around Us.
-          </motion.h2>
+          />
           <motion.p
             variants={fadeInUp}
             initial="hidden"

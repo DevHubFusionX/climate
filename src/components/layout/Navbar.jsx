@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import heroBg from '../../assets/images/hero.jpeg'
+import Button from '../ui/Button'
 
 export default function Navbar() {
   const [visible, setVisible] = useState(true)
@@ -86,34 +87,45 @@ export default function Navbar() {
           </svg>
         </Link>
 
-        {/* Nav links pill */}
-        <div className="flex items-center gap-7 px-8 py-2.5 bg-white/10 backdrop-blur-lg border border-white/15 rounded-xl shadow-lg transition-all duration-200 hover:bg-white/15 hover:border-white/25">
-          {navItems.map((item) => {
-            const isActive = location.pathname === item.to || (item.to === '/' && location.pathname === '/technology')
-            return item.to.startsWith('#') || item.to.includes('#') ? (
-              <a
-                key={item.label}
-                href={item.to}
-                className={`relative text-[14px] font-medium tracking-wide py-0.5 transition-colors duration-200 no-underline ${
-                  isActive ? 'text-white font-bold' : 'text-white/80 hover:text-white'
-                } after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-0 after:bg-white after:transition-[width] after:duration-200 hover:after:w-full`}
-              >
-                {item.label}
-              </a>
-            ) : (
-              <Link
-                key={item.label}
-                to={item.to}
-                className={`relative text-[14px] font-medium tracking-wide py-0.5 transition-colors duration-200 no-underline ${
-                  isActive ? 'text-white font-bold' : 'text-white/80 hover:text-white'
-                } after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-0 after:bg-white after:transition-[width] after:duration-200 hover:after:w-full`}
-              >
-                {item.label}
-              </Link>
-            )
-          })}
-        </div>
+        {/* Nav links and Action */}
+        <div className="flex items-center gap-3.5">
+          {/* Nav links pill */}
+          <div className="flex items-center gap-6 px-6 py-2 bg-white/10 backdrop-blur-lg border border-white/15 rounded-xl shadow-lg transition-all duration-200 hover:bg-white/15 hover:border-white/25">
+            {navItems.map((item) => {
+              const isActive = location.pathname === item.to || (item.to === '/' && location.pathname === '/technology')
+              return item.to.startsWith('#') || item.to.includes('#') ? (
+                <a
+                  key={item.label}
+                  href={item.to}
+                  className={`relative text-[13.5px] font-medium tracking-wide py-0.5 transition-colors duration-200 no-underline ${
+                    isActive ? 'text-white font-bold' : 'text-white/80 hover:text-white'
+                  } after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-0 after:bg-white after:transition-[width] after:duration-200 hover:after:w-full`}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.label}
+                  to={item.to}
+                  className={`relative text-[13.5px] font-medium tracking-wide py-0.5 transition-colors duration-200 no-underline ${
+                    isActive ? 'text-white font-bold' : 'text-white/80 hover:text-white'
+                  } after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-0 after:bg-white after:transition-[width] after:duration-200 hover:after:w-full`}
+                >
+                  {item.label}
+                </Link>
+              )
+            })}
+          </div>
 
+          <Button
+            text="Ship with Dara"
+            href="#partner"
+            variant="brand"
+            iconBg="#ffffff"
+            dotColor="rgb(0, 86, 184)"
+            className="hidden md:inline-flex text-[13px] py-1 pl-4 pr-1 gap-2"
+          />
+        </div>
       </div>
     </nav>
   )

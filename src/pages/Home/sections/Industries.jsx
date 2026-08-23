@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { fadeInUp, cardVariant, cardHover } from '../../../utils/motion'
+import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 const industries = [
   {
@@ -116,9 +117,13 @@ export default function Industries() {
               </span>
               Target Industries
             </div>
-            <h2 className="text-[36px] lg:text-[44px] font-extrabold leading-[1.12] tracking-tight text-slate-900 m-0">
-              Built for what can't afford to fail.
-            </h2>
+            <WordColorReveal
+              as="h2"
+              theme="light"
+              text="Built for what can't afford to fail."
+              className="text-[36px] lg:text-[44px] font-extrabold leading-[1.12] tracking-tight text-slate-900 m-0"
+              delay={0.15}
+            />
           </motion.div>
           <motion.p
             variants={fadeInUp}

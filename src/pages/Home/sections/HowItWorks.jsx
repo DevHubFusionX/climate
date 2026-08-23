@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { fadeInUp, cardVariant, cardHover } from '../../../utils/motion'
+import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 export default function HowItWorks() {
   return (
@@ -18,16 +19,13 @@ export default function HowItWorks() {
             <span className="w-1.5 h-1.5 rounded-full bg-[rgb(0,86,184)]" />
             Shipment Flow
           </motion.div>
-          <motion.h2
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            custom={1}
+          <WordColorReveal
+            as="h2"
+            theme="light"
+            text="How a Dara Climate-Smart Shipment Works"
             className="text-[36px] lg:text-[44px] font-extrabold leading-[1.15] tracking-tight text-neutral-900 m-0 mb-4"
-          >
-            How a Dara Climate-Smart Shipment Works
-          </motion.h2>
+            delay={0.15}
+          />
           <motion.p
             variants={fadeInUp}
             initial="hidden"

@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { fadeInUp, cardVariant, cardHover } from '../../../utils/motion'
+import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 const capabilities = [
   {
@@ -83,9 +84,13 @@ export default function DaraOS() {
               </span>
               DaraOS
             </div>
-            <h2 className="text-[36px] lg:text-[48px] font-extrabold leading-[1.1] tracking-tight text-white m-0">
-              The intelligence connecting everything.
-            </h2>
+            <WordColorReveal
+              as="h2"
+              theme="dark"
+              text="The intelligence connecting everything."
+              className="text-[36px] lg:text-[48px] font-extrabold leading-[1.1] tracking-tight text-white m-0"
+              delay={0.15}
+            />
           </motion.div>
           <motion.p
             variants={fadeInUp}

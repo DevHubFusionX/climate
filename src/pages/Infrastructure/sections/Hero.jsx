@@ -2,6 +2,8 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import heroBg from '../../../assets/images/AdobeStock_1579974778.jpeg'
 import { fadeInUp, buttonHover, buttonTap } from '../../../utils/motion'
+import WordColorReveal from '../../../components/ui/WordColorReveal'
+import Button from '../../../components/ui/Button'
 
 export default function Hero() {
   return (
@@ -39,28 +41,32 @@ export default function Hero() {
               </motion.div>
 
               {/* Headline */}
-              <motion.h1
-                variants={fadeInUp}
-                initial="hidden"
-                animate="visible"
-                custom={0.25}
+              <WordColorReveal
+                as="h1"
+                text="Building the Clean Infrastructure Behind Africa’s Economy."
+                delay={0.25}
+                stagger={0.09}
+                duration={0.65}
+                baseColor="rgba(255, 255, 255, 0.2)"
+                revealColor="#ffffff"
                 className="m-0 text-[42px] font-extrabold leading-[1.12] tracking-[-1.5px] text-white sm:text-[48px] lg:text-[56px]"
-              >
-                Building the Clean Infrastructure Behind Africa’s Economy.
-              </motion.h1>
+              />
             </div>
 
             {/* Right column */}
             <div className="lg:pt-10">
-              <motion.p
-                variants={fadeInUp}
-                initial="hidden"
-                animate="visible"
-                custom={0.4}
+              <WordColorReveal
+                as="p"
+                text="Solar refrigeration. Electric mobility. Intelligent cold infrastructure. One connected network to move and preserve temperature-sensitive products."
+                delay={0.7}
+                stagger={0.03}
+                duration={0.5}
+                baseColor="rgba(255, 255, 255, 0.25)"
+                revealColor="rgba(255, 255, 255, 0.88)"
+                blur={false}
+                yOffset={4}
                 className="mb-8 max-w-[460px] text-[16px] leading-relaxed text-white/85 sm:text-[18px]"
-              >
-                Solar refrigeration. Electric mobility. Intelligent cold infrastructure. One connected network to move and preserve temperature-sensitive products.
-              </motion.p>
+              />
 
               {/* Actions */}
               <motion.div
@@ -70,15 +76,13 @@ export default function Hero() {
                 custom={0.55}
                 className="flex flex-wrap items-center gap-4"
               >
-                <motion.a
-                  whileHover={buttonHover}
-                  whileTap={buttonTap}
+                <Button
+                  text="Partner With Dara"
                   href="#partner-cta"
-                  className="inline-block rounded-full px-8 py-3.5 text-[14px] font-bold text-white no-underline shadow-[0_4px_20px_rgba(0,86,184,0.4)] transition-shadow duration-200"
-                  style={{ background: 'rgb(0, 86, 184)' }}
-                >
-                  Partner With Dara
-                </motion.a>
+                  variant="brand"
+                  iconBg="#ffffff"
+                  dotColor="rgb(0, 86, 184)"
+                />
                 <motion.a
                   whileHover={buttonHover}
                   whileTap={buttonTap}

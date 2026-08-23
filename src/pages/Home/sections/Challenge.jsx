@@ -1,213 +1,182 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Zap, ShieldCheck, Layers, Activity, Star } from 'lucide-react'
 import { fadeInUp, cardVariant, cardHover } from '../../../utils/motion'
+import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 export default function Challenge() {
+  const stats = [
+    {
+      value: '45%+',
+      desc: 'Product value lost across fragmented and unmonitored African delivery corridors.',
+    },
+    {
+      value: '80%',
+      desc: 'Cold storage infrastructure currently reliant on expensive diesel generator power.',
+    },
+    {
+      value: '3.2x',
+      desc: 'Higher operational cost per kilometer under legacy unintegrated logistics models.',
+    },
+    {
+      value: '24/7',
+      desc: 'Continuous live IoT telemetry required to eliminate spoilage and guarantee compliance.',
+    },
+  ]
+
+  const featurePills = [
+    { icon: Zap, label: 'Efficiency' },
+    { icon: ShieldCheck, label: 'Precision' },
+    { icon: Layers, label: 'Network Scale' },
+    { icon: Activity, label: 'Live Telemetry' },
+  ]
+
   return (
-    <section className="relative z-10 bg-white rounded-t-2xl px-6 lg:px-16 pt-24 pb-20">
+    <section className="relative z-10 bg-[#fbfbfa] rounded-t-3xl border-t border-slate-200/60 px-6 lg:px-16 py-24 lg:py-32">
       <div className="max-w-6xl mx-auto">
-        {/* ── Heading block ─────────────────────────────────────── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-start">
+        {/* ── Top Header Row ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-start">
           <motion.div
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
+            className="lg:col-span-7"
           >
-            <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[1.5px] uppercase text-slate-400 mb-5">
-              <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: 'rgb(0, 86, 184)' }} />
+            {/* Pill Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-slate-200/60 border border-slate-300/40 text-[11px] font-bold tracking-[1.5px] uppercase text-slate-600 mb-5">
               The Cold Chain Dilemma
             </div>
-            <h2 className="text-[36px] lg:text-[44px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0">
-              Products shouldn't lose value between production and delivery.
-            </h2>
+            <WordColorReveal
+              as="h2"
+              theme="light"
+              text="Products shouldn't lose value before delivery."
+              className="text-[34px] sm:text-[44px] lg:text-[48px] font-extrabold leading-[1.12] tracking-tight text-slate-900 m-0"
+              delay={0.15}
+            />
           </motion.div>
+
           <motion.p
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             custom={1}
-            className="text-[15px] leading-relaxed text-slate-500 m-0 max-w-[440px] lg:pt-10 font-medium"
+            className="lg:col-span-5 text-[15px] sm:text-[16px] leading-relaxed text-slate-500 m-0 lg:pt-14 font-normal"
           >
-            Africa's temperature-sensitive economy depends on a cold chain that is fragmented, expensive, and energy-intensive. Businesses are forced to choose between massive capital costs or high operational risk.
+            Africa's temperature-sensitive economy depends on fragmented, expensive infrastructure. Businesses are forced to choose between massive capital costs and high operational risk.
           </motion.p>
         </div>
 
-        {/* ── Bento Grid Layout with Cascading Stagger Delay ── */}
-        <div className="flex flex-col gap-6">
-          {/* Row 1: Two Equal-Width Columns */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Card 1: Lavender-Blue Gradient with Giant '01' */}
-            <motion.div
-              variants={cardVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
-              custom={0}
-              whileHover={cardHover}
-              className="relative overflow-hidden rounded-[20px] border border-slate-200/50 bg-gradient-to-tr from-violet-100/70 via-indigo-50/50 to-blue-100/70 min-h-[320px] p-8 flex flex-col justify-between group shadow-sm hover:shadow-md transition-shadow duration-300"
-            >
-              {/* Giant Metallic "01" */}
-              <div className="absolute left-8 bottom-2 select-none pointer-events-none">
-                <span className="text-[120px] font-black leading-none bg-gradient-to-b from-slate-300 to-slate-400/70 bg-clip-text text-transparent opacity-40 filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.03)]">
-                  01
-                </span>
+        {/* ── Bento Grid: Left Featured Tall Card + Right 2×2 Stat Grid ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          {/* ── Left Column: Featured Brand Gradient Card (5 / 12 cols) ── */}
+          <motion.div
+            variants={cardVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            custom={0}
+            whileHover={cardHover}
+            className="lg:col-span-5 relative overflow-hidden rounded-[28px] p-8 sm:p-9 flex flex-col justify-between shadow-xl transition-shadow duration-300 group min-h-[480px] lg:min-h-full border border-white/15"
+            style={{
+              background: 'linear-gradient(155deg, rgb(0, 86, 184) 0%, rgb(0, 52, 125) 55%, rgb(8, 18, 45) 100%)',
+            }}
+          >
+            {/* Ambient Background Torus Swirl */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[28px] opacity-40">
+              <svg className="absolute w-[160%] h-[160%] -top-[30%] -left-[30%]" viewBox="0 0 400 400" fill="none">
+                <defs>
+                  <radialGradient id="torusGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.7" />
+                    <stop offset="60%" stopColor="#0056b8" stopOpacity="0.3" />
+                    <stop offset="100%" stopColor="#031e50" stopOpacity="0" />
+                  </radialGradient>
+                  <linearGradient id="torusSwirl" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#93c5fd" stopOpacity="0.5" />
+                    <stop offset="50%" stopColor="#3b82f6" stopOpacity="0.25" />
+                    <stop offset="100%" stopColor="#002b66" stopOpacity="0.7" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M200 70C128.203 70 70 128.203 70 200C70 271.797 128.203 330 200 330C271.797 330 330 271.797 330 200C330 128.203 271.797 70 200 70ZM200 135C235.899 135 265 164.101 265 200C265 235.899 235.899 265 200 265C164.101 265 135 235.899 135 200C135 164.101 164.101 135 200 135Z"
+                  fill="url(#torusSwirl)"
+                  filter="blur(16px)"
+                />
+                <circle cx="200" cy="200" r="110" fill="url(#torusGlow)" filter="blur(26px)" />
+              </svg>
+            </div>
+
+            {/* Top: Feature Pillar Tags */}
+            <div className="relative z-10 space-y-3">
+              {featurePills.map((pill) => {
+                const Icon = pill.icon
+                return (
+                  <div
+                    key={pill.label}
+                    className="flex items-center gap-3 text-white/90 text-[13.5px] font-semibold tracking-wide"
+                  >
+                    <div className="w-6 h-6 rounded-md bg-white/10 flex items-center justify-center text-white/80 shrink-0">
+                      <Icon className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{pill.label}</span>
+                  </div>
+                )
+              })}
+            </div>
+
+            {/* Bottom: Customer Proof Quote & Rating */}
+            <div className="relative z-10 mt-12 pt-6 border-t border-white/15">
+              {/* Star Rating */}
+              <div className="flex items-center gap-1 mb-3 text-amber-300">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-amber-300 stroke-amber-300" />
+                ))}
               </div>
 
-              {/* Ribbed Bottom texture */}
-              <div
-                className="absolute inset-x-0 bottom-0 h-16 opacity-30 pointer-events-none"
-                style={{
-                  background: 'repeating-linear-gradient(90deg, rgba(99,102,241,0.15), rgba(99,102,241,0.15) 1px, transparent 1px, transparent 6px)',
-                }}
-              />
+              {/* Quote Text */}
+              <p className="text-[14px] sm:text-[14.5px] leading-relaxed text-white/90 m-0 mb-4 font-normal">
+                "Dara has completely transformed how we move temperature-critical cargo, cutting spoilage risk and fuel volatility across our routes."
+              </p>
 
-              {/* Text Top-Right */}
-              <div className="ml-auto text-right max-w-[220px] relative z-10">
-                <h3 className="text-[16px] font-extrabold text-indigo-950 m-0 mb-2">
-                  Unreliable Grid Power
-                </h3>
-                <p className="text-[12px] leading-relaxed text-indigo-950/75 m-0 font-medium">
-                  Grid failures force heavy reliance on diesel. When backup generators fail, temperature spikes destroy produce, pharma, and protein before delivery.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Card 2: Off-white with glowing cold storage container */}
-            <motion.div
-              variants={cardVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
-              custom={1}
-              whileHover={cardHover}
-              className="relative overflow-hidden rounded-[20px] border border-slate-200/50 bg-[#fbfbfa] min-h-[320px] p-8 flex flex-col justify-between group shadow-sm hover:shadow-md transition-shadow duration-300"
-            >
-              {/* Glowing Cold Box Visual */}
-              <div className="flex-1 flex items-center justify-center p-4">
-                <div className="relative w-36 h-24 bg-[#fdfdfd] border border-slate-200/80 rounded-xl shadow-[0_8px_24px_rgba(0,0,0,0.03)] flex flex-col justify-between p-3 overflow-hidden">
-                  <div className="absolute inset-x-0 bottom-0 h-[2px] bg-orange-400 shadow-[0_0_8px_#f97316] animate-pulse" />
-
-                  <div className="flex items-center justify-between border-b border-slate-100 pb-1.5">
-                    <span className="text-[9px] font-bold text-slate-400 tracking-wider">DARA HUB</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-ping" />
-                  </div>
-
-                  <div className="flex-1 flex items-center justify-center">
-                    <span className="text-[10px] font-bold text-slate-800 tracking-tight px-2 py-0.5 bg-slate-50 border border-slate-100 rounded">
-                      Temp: 22.4°C
-                    </span>
-                  </div>
+              {/* Author Info */}
+              <div>
+                <div className="text-[13px] font-bold text-white tracking-wide">
+                  Sarah Mitchel
+                </div>
+                <div className="text-[11px] text-white/60 font-medium">
+                  Head of Supply Chain, FreshLogix Africa
                 </div>
               </div>
+            </div>
+          </motion.div>
 
-              {/* Text Bottom */}
-              <div className="relative z-10">
-                <p className="text-[13px] leading-relaxed text-slate-500 m-0 font-medium">
-                  <span className="font-extrabold text-slate-900">Fragmented Operations.</span> Without integrated cold chains, operations are forced to patch together disconnected power generators, isolated warehouses, and unmonitored vehicles.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Row 2: 40% / 60% Split Columns */}
-          <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-6">
-            {/* Card 3: CapEx Barrier with Floating Invoices (40% width) */}
-            <motion.div
-              variants={cardVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
-              custom={2}
-              whileHover={cardHover}
-              className="relative overflow-hidden rounded-[20px] border border-slate-200/50 bg-[#fbfbfa] min-h-[360px] p-8 flex flex-col justify-between group shadow-sm hover:shadow-md transition-shadow duration-300"
-            >
-              {/* Stacked floating cost cards */}
-              <div className="flex-1 flex flex-col justify-center gap-3 relative py-4">
-                <motion.div
-                  animate={{ y: [0, -4, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                  className="relative bg-white border border-slate-100 rounded-xl p-3 shadow-[0_4px_12px_rgba(0,0,0,0.02)] flex items-center gap-3 max-w-[240px] self-start translate-x-2"
-                >
-                  <div className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center flex-shrink-0 text-red-500 text-[13px] font-extrabold">
-                    $
-                  </div>
-                  <div>
-                    <h4 className="text-[11px] font-bold text-slate-800 m-0">Warehouse Lease</h4>
-                    <p className="text-[9px] text-slate-400 m-0">Due: $4,200 / month</p>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  animate={{ y: [0, 4, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                  className="relative bg-white border border-slate-100 rounded-xl p-3 shadow-[0_8px_20px_rgba(0,0,0,0.04)] flex items-center gap-3 max-w-[240px] self-start translate-x-8 z-10"
-                >
-                  <div className="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center flex-shrink-0 text-amber-600 text-[12px] font-extrabold">
-                    ⛽
-                  </div>
-                  <div>
-                    <h4 className="text-[11px] font-bold text-slate-800 m-0">Generator Diesel</h4>
-                    <p className="text-[9px] text-slate-400 m-0">Paid: $1,850 / week</p>
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* Text Bottom */}
-              <div className="relative z-10">
-                <span className="text-[11px] font-bold uppercase tracking-wider block mb-1.5" style={{ color: 'rgb(0, 86, 184)' }}>
-                  Financial Strain
-                </span>
-                <h3 className="text-[16px] font-extrabold text-slate-900 m-0 mb-1.5">
-                  The CapEx Barrier
-                </h3>
-                <p className="text-[13px] leading-relaxed text-slate-500 m-0 font-medium">
-                  Owning storage and transit requires heavy upfront capital, locking cash flow away from scaling core business growth.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Card 4: Visibility Void with Geometric Track */}
-            <motion.div
-              variants={cardVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
-              custom={3}
-              whileHover={cardHover}
-              className="relative overflow-hidden rounded-[20px] border border-slate-200/50 bg-[#fbfbfa] min-h-[360px] p-8 flex flex-col justify-between group shadow-sm hover:shadow-md transition-shadow duration-300"
-            >
-              {/* Abstract Geometric Track visual */}
-              <div className="flex-1 flex items-center justify-center relative py-6">
-                <div className="w-full max-w-[380px] h-28 relative flex items-center justify-center overflow-hidden">
-                  <div className="absolute w-[90%] h-[2px] bg-slate-200/70 rounded-full" />
-                  <motion.div
-                    animate={{ x: [-20, 60, -20] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                    className="absolute left-[25%] w-5 h-5 rounded-full bg-gradient-to-br from-slate-100 to-slate-350 shadow-[0_4px_8px_rgba(0,0,0,0.1)] border border-slate-200/40"
-                  />
-                  <div className="absolute left-[45%] top-3 w-8 h-8 rounded-full bg-orange-100/60 border border-orange-200/40 shadow-sm" />
-                  <div className="absolute right-[18%] top-5 w-16 h-5 bg-violet-100/60 border border-violet-200/30 rounded rotate-[14deg] shadow-sm" />
-                  <div className="absolute left-[8%] bottom-1 flex gap-1 items-end">
-                    <div className="w-1.5 h-6 bg-blue-400/15 border border-blue-400/20 rounded skew-x-[-12deg]" />
-                    <div className="w-1.5 h-10 bg-blue-400/15 border border-blue-400/20 rounded skew-x-[-12deg]" />
-                    <div className="w-1.5 h-8 bg-blue-400/15 border border-blue-400/20 rounded skew-x-[-12deg]" />
-                  </div>
-                  <div className="absolute right-[12%] bottom-2 w-3.5 h-3.5 bg-slate-100 border border-slate-200/80 rounded rotate-45 shadow-sm" />
+          {/* ── Right Column: 2×2 Stat Grid (7 / 12 cols) ── */}
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {stats.map((item, index) => (
+              <motion.div
+                key={item.value}
+                variants={cardVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.15 }}
+                custom={index + 1}
+                whileHover={cardHover}
+                className="bg-white rounded-[26px] p-8 sm:p-9 border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between min-h-[230px] group"
+              >
+                {/* Stat Numeral */}
+                <div>
+                  <span className="text-[44px] sm:text-[50px] font-extrabold tracking-tight text-slate-900 leading-none block mb-4 group-hover:text-[rgb(0,86,184)] transition-colors duration-300">
+                    {item.value}
+                  </span>
                 </div>
-              </div>
 
-              {/* Text Bottom Left */}
-              <div className="relative z-10 max-w-[420px]">
-                <h3 className="text-[16px] font-extrabold text-slate-900 m-0 mb-1.5">
-                  Zero Visibility
-                </h3>
-                <p className="text-[13px] leading-relaxed text-slate-500 m-0 font-medium">
-                  Without continuous IoT monitoring, cargo is shipped in a blind box. Temperature alerts, route tracking, and power logs are completely missing.
+                {/* Description */}
+                <p className="text-[13.5px] sm:text-[14px] leading-relaxed text-slate-500 m-0 font-normal">
+                  {item.desc}
                 </p>
-              </div>
-            </motion.div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>

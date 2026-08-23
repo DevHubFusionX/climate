@@ -58,3 +58,33 @@ export const buttonHover = {
 export const buttonTap = {
   scale: 0.98,
 }
+
+export const wordRevealContainer = (delay = 0.2, stagger = 0.08) => ({
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: typeof stagger === 'number' ? stagger : 0.08,
+      delayChildren: typeof delay === 'number' ? delay : 0.2,
+    },
+  },
+})
+
+export const wordRevealItem = {
+  hidden: {
+    color: 'rgba(255, 255, 255, 0.2)',
+    opacity: 0.25,
+    y: 6,
+    filter: 'blur(4px)',
+  },
+  visible: (customColor = '#ffffff') => ({
+    color: customColor,
+    opacity: 1,
+    y: 0,
+    filter: 'blur(0px)',
+    transition: {
+      duration: 0.6,
+      ease: easeDara,
+    },
+  }),
+}
+
