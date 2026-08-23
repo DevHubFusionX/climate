@@ -1,59 +1,65 @@
-import React, { useState, useRef } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 import { fadeInUp, cardVariant, cardHover, viewportConfig } from '../../../utils/motion'
 import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 const capabilities = [
   {
+    step: '01',
     title: 'Booking & Dispatch',
     desc: 'Customers request temperature-controlled transportation or storage through a single interface.',
     icon: (
-      <svg className="w-5 h-5 stroke-white" fill="none" viewBox="0 0 24 24" strokeWidth="2">
+      <svg className="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25Z" />
       </svg>
     ),
   },
   {
+    step: '02',
     title: 'IoT Monitoring',
     desc: 'Real-time tracking of temperature, location and vehicle status across every connected asset.',
     icon: (
-      <svg className="w-5 h-5 stroke-white" fill="none" viewBox="0 0 24 24" strokeWidth="2">
+      <svg className="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
         <path strokeLinecap="round" strokeLinejoin="round" d="M8.288 15.038a5.25 5.25 0 0 1 7.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 0 1 1.06 0Z" />
       </svg>
     ),
   },
   {
+    step: '03',
     title: 'Route Optimisation',
     desc: "Smart routing across Dara's delivery network to ensure products move efficiently and reliably.",
     icon: (
-      <svg className="w-5 h-5 stroke-white" fill="none" viewBox="0 0 24 24" strokeWidth="2">
+      <svg className="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z" />
       </svg>
     ),
   },
   {
+    step: '04',
     title: 'Cold Storage Management',
     desc: 'Solar-powered distributed cold rooms connected into a single intelligent storage network.',
     icon: (
-      <svg className="w-5 h-5 stroke-white" fill="none" viewBox="0 0 24 24" strokeWidth="2">
+      <svg className="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75H21m-3 3.75H21" />
       </svg>
     ),
   },
   {
+    step: '05',
     title: 'Data & Analytics',
     desc: 'Operational intelligence from every shipment, storage event and vehicle interaction across the network.',
     icon: (
-      <svg className="w-5 h-5 stroke-white" fill="none" viewBox="0 0 24 24" strokeWidth="2">
+      <svg className="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
         <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
       </svg>
     ),
   },
   {
+    step: '06',
     title: 'Fleet Integration',
     desc: 'Connects refrigerated vehicles — including electric vans and trucks — into a single coordinated fleet layer.',
     icon: (
-      <svg className="w-5 h-5 stroke-white" fill="none" viewBox="0 0 24 24" strokeWidth="2">
+      <svg className="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.125-.504 1.125-1.125V11.25m-17.25 7.5H21" />
       </svg>
     ),
@@ -61,18 +67,6 @@ const capabilities = [
 ]
 
 export default function DaraOS() {
-  const [activeSlide, setActiveSlide] = useState(0)
-  const sliderRef = useRef(null)
-
-  const handleScroll = () => {
-    if (sliderRef.current) {
-      const { scrollLeft, offsetWidth } = sliderRef.current
-      const cardWidth = offsetWidth * 0.82
-      const index = Math.round(scrollLeft / cardWidth)
-      setActiveSlide(Math.min(Math.max(index, 0), capabilities.length - 1))
-    }
-  }
-
   return (
     <section
       id="daraos"
@@ -81,7 +75,7 @@ export default function DaraOS() {
     >
       <div className="max-w-6xl mx-auto">
         {/* ── Header ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 mb-12 sm:mb-20 items-end">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 mb-10 sm:mb-20 items-end">
           <motion.div
             variants={fadeInUp}
             initial="hidden"
@@ -116,53 +110,26 @@ export default function DaraOS() {
           </motion.p>
         </div>
 
-        {/* ── Mobile View: Horizontal Touch-Snap Carousel (Hidden on Desktop) ── */}
-        <div className="block md:hidden">
-          <div
-            ref={sliderRef}
-            onScroll={handleScroll}
-            className="flex overflow-x-auto snap-x snap-mandatory scrollbar-none gap-3.5 -mx-4 px-4 pb-2"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
-            {capabilities.map((item) => (
-              <div
-                key={item.title}
-                className="flex-shrink-0 w-[82vw] max-w-[300px] snap-start bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/15 flex flex-col justify-between min-h-[190px] shadow-sm"
-              >
-                <div>
-                  <div className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center mb-4">
-                    {item.icon}
-                  </div>
-                  <h3 className="text-[17px] font-bold text-white m-0 mb-2 tracking-tight">
-                    {item.title}
-                  </h3>
-                  <p className="text-[13px] leading-relaxed text-white/75 m-0 font-normal">
-                    {item.desc}
-                  </p>
+        {/* ── Mobile View: 2-Column Micro-Tile Matrix (Hidden on Desktop) ── */}
+        <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5 md:hidden">
+          {capabilities.map((item) => (
+            <div
+              key={item.title}
+              className="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-white/15 flex flex-col justify-between shadow-xs"
+            >
+              <div>
+                <div className="w-8 h-8 rounded-lg bg-white/15 text-white flex items-center justify-center mb-3">
+                  {item.icon}
                 </div>
+                <h3 className="text-[14px] sm:text-[15.5px] font-bold text-white m-0 mb-1.5 tracking-tight leading-snug">
+                  {item.title}
+                </h3>
+                <p className="text-[11.5px] sm:text-[12.5px] leading-relaxed text-white/75 m-0 font-normal">
+                  {item.desc}
+                </p>
               </div>
-            ))}
-          </div>
-
-          {/* Swipe Indicator Dots */}
-          <div className="flex items-center justify-center gap-1.5 pt-5">
-            {capabilities.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                onClick={() => {
-                  if (sliderRef.current) {
-                    const cardWidth = sliderRef.current.offsetWidth * 0.82
-                    sliderRef.current.scrollTo({ left: i * cardWidth, behavior: 'smooth' })
-                  }
-                }}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  activeSlide === i ? 'w-6 bg-[#4ade80]' : 'w-1.5 bg-white/30'
-                }`}
-                aria-label={`Slide ${i + 1}`}
-              />
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
         {/* ── Desktop View: 3x2 Grid (Hidden on Mobile) ── */}
@@ -179,7 +146,7 @@ export default function DaraOS() {
               className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/15 flex flex-col justify-between min-h-[220px] transition-colors duration-300 hover:bg-white/[0.14] hover:border-white/25 shadow-sm"
             >
               <div>
-                <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center mb-6">
+                <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center mb-6 text-white">
                   {item.icon}
                 </div>
                 <h3 className="text-[18px] font-bold text-white m-0 mb-3 tracking-tight">
@@ -196,4 +163,3 @@ export default function DaraOS() {
     </section>
   )
 }
-
