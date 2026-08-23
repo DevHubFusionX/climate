@@ -15,7 +15,7 @@ const visionPillars = [
 export default function Vision() {
   return (
     <section
-      className="relative z-10 rounded-[28px] md:rounded-[36px] mx-4 lg:mx-8 my-10 overflow-hidden"
+      className="relative z-10 rounded-[24px] sm:rounded-[36px] mx-3 sm:mx-6 lg:mx-8 my-8 sm:my-12 overflow-hidden"
       style={{ background: 'rgb(0, 86, 184)' }}
     >
       {/* Subtle radial glow */}
@@ -26,7 +26,7 @@ export default function Vision() {
         style={{ background: 'radial-gradient(circle, rgba(150,210,255,0.6) 0%, transparent 70%)' }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8 lg:px-16 py-20 lg:py-28 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-14 sm:py-20 lg:py-28 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
         {/* Left Column */}
         <div>
           <motion.p
@@ -43,8 +43,7 @@ export default function Vision() {
             text={['A cold chain', 'built for a', 'warmer world.']}
             as="h2"
             theme="dark"
-            className="m-0 font-extrabold tracking-tight leading-[1.12]"
-            style={{ fontSize: 'clamp(36px, 4.8vw, 60px)' }}
+            className="m-0 font-extrabold tracking-tight leading-[1.12] text-[26px] xs:text-[32px] sm:text-[40px] lg:text-[52px]"
             wordColorMap={{
               warmer: '#4ade80',
               world: '#4ade80',

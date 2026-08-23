@@ -70,8 +70,8 @@ export default function Ecosystem() {
   ]
 
   return (
-    <section className="relative z-10 bg-[#f4f3ef] px-6 lg:px-16 py-24 lg:py-32">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-20 items-start">
+    <section className="relative z-10 bg-[#f4f3ef] px-4 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-32">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-20 items-start">
         {/* Left Column: Sticky Title block */}
         <motion.div
           variants={fadeInUp}
@@ -92,10 +92,10 @@ export default function Ecosystem() {
             as="h2"
             theme="light"
             text="One connected system for moving, cooling and monitoring products."
-            className="text-[36px] lg:text-[44px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0 mb-6"
+            className="text-[26px] xs:text-[30px] sm:text-[36px] lg:text-[44px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0 mb-4 sm:mb-6"
             delay={0.15}
           />
-          <p className="text-[16px] leading-relaxed text-slate-500 m-0 mb-8">
+          <p className="text-[14px] sm:text-[16px] leading-relaxed text-slate-500 m-0 mb-6 sm:mb-8">
             Five integrated pillars — clean energy, intelligent refrigeration, electric mobility, IoT intelligence, and DaraOS — working as one cold-chain network.
           </p>
           <Button
@@ -108,7 +108,7 @@ export default function Ecosystem() {
         </motion.div>
 
         {/* Right Column: Stacking Cards with Blur Reveal */}
-        <div className="relative flex flex-col gap-8 pb-16 lg:pb-24">
+        <div className="relative flex flex-col gap-6 sm:gap-8 pb-16 lg:pb-24">
           {pillars.map((pillar, index) => (
             <motion.div
               key={pillar.title}
@@ -125,36 +125,36 @@ export default function Ecosystem() {
                 top: `calc(100px + ${index * 22}px)`,
                 zIndex: index + 1,
               }}
-              className="sticky bg-white/95 backdrop-blur-md rounded-[24px] p-7 sm:p-8 border border-slate-200/80 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.04)] flex flex-col items-start transition-all duration-300 hover:border-slate-300 hover:shadow-[0_16px_40px_-6px_rgba(0,0,0,0.1)] will-change-[transform,opacity,filter]"
+              className="sticky bg-white/95 backdrop-blur-md rounded-[24px] p-6 sm:p-8 border border-slate-200/80 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.04)] flex flex-col items-start transition-all duration-300 hover:border-slate-300 hover:shadow-[0_16px_40px_-6px_rgba(0,0,0,0.1)] will-change-[transform,opacity,filter]"
             >
               {/* Header row: Icon, Tag & Step Number */}
-              <div className="w-full flex items-center justify-between mb-5">
+              <div className="w-full flex items-center justify-between mb-4 sm:mb-5">
                 <div className="flex items-center gap-3">
                   <div
-                    className="p-2.5 rounded-xl flex items-center justify-center shadow-sm"
+                    className="p-2 sm:p-2.5 rounded-xl flex items-center justify-center shadow-sm"
                     style={{ background: 'rgb(0, 86, 184)' }}
                   >
                     {pillar.icon}
                   </div>
-                  <span className="text-[11px] font-bold tracking-wider text-slate-400 uppercase">
+                  <span className="text-[10px] sm:text-[11px] font-bold tracking-wider text-slate-400 uppercase">
                     {pillar.tag}
                   </span>
                 </div>
-                <span className="text-[12px] font-mono font-bold text-slate-400 px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200/60">
+                <span className="text-[11px] sm:text-[12px] font-mono font-bold text-slate-400 px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200/60">
                   {pillar.step}
                 </span>
               </div>
 
               {/* Title & Subtitle */}
-              <h3 className="text-[20px] font-extrabold text-slate-900 tracking-tight m-0 mb-1.5">
+              <h3 className="text-[18px] sm:text-[20px] font-extrabold text-slate-900 tracking-tight m-0 mb-1.5">
                 {pillar.title}
               </h3>
-              <p className="text-[14px] font-semibold text-[rgb(0,86,184)] m-0 mb-3">
+              <p className="text-[13px] sm:text-[14px] font-semibold text-[rgb(0,86,184)] m-0 mb-2.5 sm:mb-3">
                 {pillar.subtitle}
               </p>
 
               {/* Description */}
-              <p className="text-[14px] leading-relaxed text-slate-500 m-0">
+              <p className="text-[13px] sm:text-[14px] leading-relaxed text-slate-500 m-0">
                 {pillar.desc}
               </p>
             </motion.div>

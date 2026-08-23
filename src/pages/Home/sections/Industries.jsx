@@ -99,7 +99,7 @@ export default function Industries() {
   const rest = industries.slice(1)
 
   return (
-    <section className="relative z-10 bg-white border-t border-slate-100 px-6 lg:px-16 py-24 lg:py-32">
+    <section className="relative z-10 bg-white border-t border-slate-100 px-4 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-32">
       <div className="max-w-6xl mx-auto">
         {/* ── Header ── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end mb-16">
@@ -121,7 +121,7 @@ export default function Industries() {
               as="h2"
               theme="light"
               text="Built for what can't afford to fail."
-              className="text-[36px] lg:text-[44px] font-extrabold leading-[1.12] tracking-tight text-slate-900 m-0"
+              className="text-[26px] xs:text-[30px] sm:text-[36px] lg:text-[44px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0 mb-3 sm:mb-0"
               delay={0.15}
             />
           </motion.div>
@@ -131,7 +131,7 @@ export default function Industries() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             custom={1}
-            className="text-[16px] leading-relaxed text-slate-400 m-0 max-w-[420px] lg:text-right lg:ml-auto"
+            className="text-[14px] sm:text-[16px] leading-relaxed text-slate-400 m-0 max-w-[420px] lg:text-right lg:ml-auto"
           >
             Temperature-sensitive industries that demand precision, visibility and reliability at every step.
           </motion.p>

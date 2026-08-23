@@ -86,7 +86,7 @@ export default function ClimateImpact() {
   }, [])
 
   return (
-    <section className="relative z-10 bg-white border-t border-slate-100 px-6 lg:px-16 py-24 lg:py-32">
+    <section className="relative z-10 bg-white border-t border-slate-100 px-4 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-32">
       <div className="max-w-6xl mx-auto">
         {/* ── Header ── */}
         <div className="mb-16">
@@ -109,7 +109,7 @@ export default function ClimateImpact() {
               "Better for the Infrastructure Around Us."
             ]}
             delay={0.15}
-            className="text-[36px] lg:text-[44px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0 mb-4"
+            className="text-[26px] xs:text-[30px] sm:text-[36px] lg:text-[44px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0 mb-3 sm:mb-4"
           />
           <motion.p
             variants={fadeInUp}
@@ -117,7 +117,7 @@ export default function ClimateImpact() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             custom={2}
-            className="text-[16px] leading-relaxed text-slate-500 max-w-[620px] m-0"
+            className="text-[14px] sm:text-[16px] leading-relaxed text-slate-500 max-w-[620px] m-0"
           >
             Dara's climate technology is designed to create commercial value first, building a cleaner, more resilient food and logistics infrastructure.
           </motion.p>

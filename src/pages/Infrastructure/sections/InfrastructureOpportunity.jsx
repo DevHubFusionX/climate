@@ -28,7 +28,7 @@ const pillars = [
 
 export default function InfrastructureOpportunity() {
   return (
-    <section className="relative z-10 bg-white rounded-t-3xl px-6 lg:px-16 pt-24 pb-20">
+    <section className="relative z-10 bg-white rounded-t-3xl px-4 sm:px-8 lg:px-16 pt-16 sm:pt-24 pb-16 sm:pb-20">
       <div className="max-w-6xl mx-auto">
         {/* ── Header ── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-start">
@@ -44,7 +44,7 @@ export default function InfrastructureOpportunity() {
             <WordColorReveal
               text="What kind of cold chain should Africa build?"
               as="h2"
-              className="text-[34px] sm:text-[42px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0"
+              className="text-[26px] xs:text-[30px] sm:text-[36px] lg:text-[42px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0 mb-3 sm:mb-0"
               wordColorMap={{
                 cold: 'rgb(0, 86, 184)',
                 chain: 'rgb(0, 86, 184)',
@@ -60,7 +60,7 @@ export default function InfrastructureOpportunity() {
             custom={1}
             className="lg:pt-8"
           >
-            <p className="text-[15px] sm:text-[16px] leading-relaxed text-slate-500 m-0 font-normal">
+            <p className="text-[14px] sm:text-[16px] leading-relaxed text-slate-500 m-0 font-normal">
               Africa's cold chain is still being built. The opportunity isn't just adding more capacity — it's designing infrastructure that is distributed, digitally connected, and powered by cleaner energy from day one.
             </p>
           </motion.div>

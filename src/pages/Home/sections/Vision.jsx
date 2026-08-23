@@ -35,7 +35,7 @@ const capabilities = [
 export default function Vision() {
   return (
     <section
-      className="relative z-10 mx-4 lg:mx-8 my-10 rounded-[28px] md:rounded-[36px] overflow-hidden shadow-sm"
+      className="relative z-10 mx-3 sm:mx-6 lg:mx-8 my-8 sm:my-10 rounded-[24px] sm:rounded-[36px] overflow-hidden shadow-sm"
       style={{
         background: 'linear-gradient(145deg, rgb(0, 75, 165) 0%, rgb(0, 52, 125) 60%, rgb(3, 30, 80) 100%)',
       }}
@@ -81,7 +81,7 @@ export default function Vision() {
               as="h2"
               theme="dark"
               text="Move temperature-sensitive products smarter."
-              className="text-[28px] sm:text-[34px] lg:text-[38px] font-extrabold leading-[1.18] tracking-tight text-white m-0"
+              className="text-[24px] xs:text-[28px] sm:text-[34px] lg:text-[38px] font-extrabold leading-[1.18] tracking-tight text-white m-0 mb-3 sm:mb-0"
               delay={0.15}
             />
           </motion.div>
@@ -92,7 +92,7 @@ export default function Vision() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             custom={1}
-            className="text-[14px] sm:text-[15px] leading-relaxed text-white/70 m-0 max-w-md font-normal"
+            className="text-[13.5px] sm:text-[15px] leading-relaxed text-white/75 m-0 max-w-md font-normal"
           >
             From solar-powered cold hubs to IoT-monitored transportation, Dara delivers a connected, reliable, and lower-carbon cold chain for your business.
           </motion.p>

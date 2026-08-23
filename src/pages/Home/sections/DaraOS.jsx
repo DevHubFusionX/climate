@@ -64,7 +64,7 @@ export default function DaraOS() {
   return (
     <section
       id="daraos"
-      className="relative z-10 border-t border-slate-100 px-6 lg:px-16 py-24 lg:py-32"
+      className="relative z-10 border-t border-slate-100 px-4 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-32"
       style={{ background: 'rgb(0, 86, 184)' }}
     >
       <div className="max-w-6xl mx-auto">
@@ -88,7 +88,7 @@ export default function DaraOS() {
               as="h2"
               theme="dark"
               text="The intelligence connecting everything."
-              className="text-[36px] lg:text-[48px] font-extrabold leading-[1.1] tracking-tight text-white m-0"
+              className="text-[26px] xs:text-[30px] sm:text-[36px] lg:text-[48px] font-extrabold leading-[1.12] tracking-tight text-white m-0 mb-3 sm:mb-0"
               delay={0.15}
             />
           </motion.div>
@@ -98,7 +98,7 @@ export default function DaraOS() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             custom={1}
-            className="text-[16px] leading-relaxed text-white/70 m-0 max-w-[440px]"
+            className="text-[14px] sm:text-[16px] leading-relaxed text-white/75 m-0 max-w-[440px]"
           >
             DaraOS is the technology layer designed to connect customers, vehicles, cold-storage infrastructure, IoT devices and operational data into one system.
           </motion.p>

@@ -8,7 +8,7 @@ export default function InfrastructureStack() {
   return (
     <section
       id="stack"
-      className="relative z-10 bg-[#fbfbfa] overflow-hidden px-6 lg:px-14 py-24 lg:py-32 border-t border-slate-200/50"
+      className="relative z-10 bg-[#fbfbfa] overflow-hidden px-4 sm:px-8 lg:px-14 py-16 sm:py-24 lg:py-32 border-t border-slate-200/50"
     >
       {/* Background Decorative Flow Curves */}
       <svg
@@ -37,7 +37,7 @@ export default function InfrastructureStack() {
       </svg>
 
       <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
           
           {/* ── LEFT COLUMN: Headline & Brand Identity ── */}
           <div className="lg:col-span-4 flex flex-col justify-between self-stretch pt-2">
@@ -47,21 +47,21 @@ export default function InfrastructureStack() {
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
             >
-              <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[1.5px] uppercase text-slate-400 mb-4">
+              <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[1.5px] uppercase text-slate-400 mb-3 sm:mb-4">
                 Climate Infrastructure Stack
               </div>
 
               <WordColorReveal
                 text={['Clean tech,', 'not only in', 'commitments...']}
                 as="h2"
-                className="text-[40px] sm:text-[50px] lg:text-[56px] font-extrabold tracking-tight leading-[1.08] m-0 mb-5 text-slate-900"
+                className="text-[26px] xs:text-[32px] sm:text-[42px] lg:text-[52px] font-extrabold tracking-tight leading-[1.08] m-0 mb-4 sm:mb-5 text-slate-900"
                 wordColorMap={{
                   'commitments...': 'rgb(0, 86, 184)',
                   commitments: 'rgb(0, 86, 184)',
                 }}
               />
 
-              <p className="text-[14px] sm:text-[15px] leading-relaxed text-slate-500 font-normal m-0 max-w-sm">
+              <p className="text-[13.5px] sm:text-[15px] leading-relaxed text-slate-500 font-normal m-0 max-w-sm">
                 Five technologies unified into one connected ecosystem for moving, cooling, and monitoring food and pharmaceuticals across Africa.
               </p>
             </motion.div>

@@ -32,7 +32,7 @@ export default function Challenge() {
   ]
 
   return (
-    <section className="relative z-10 bg-[#fbfbfa] rounded-t-3xl border-t border-slate-200/60 px-6 lg:px-16 py-24 lg:py-32">
+    <section className="relative z-10 bg-[#fbfbfa] rounded-t-3xl border-t border-slate-200/60 px-4 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-32">
       <div className="max-w-6xl mx-auto">
         {/* ── Top Header Row ── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-start">
@@ -44,14 +44,14 @@ export default function Challenge() {
             className="lg:col-span-7"
           >
             {/* Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-slate-200/60 border border-slate-300/40 text-[11px] font-bold tracking-[1.5px] uppercase text-slate-600 mb-5">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-slate-200/60 border border-slate-300/40 text-[10px] sm:text-[11px] font-bold tracking-[1.5px] uppercase text-slate-600 mb-4 sm:mb-5">
               The Cold Chain Dilemma
             </div>
             <WordColorReveal
               as="h2"
               theme="light"
               text="Products shouldn't lose value before delivery."
-              className="text-[34px] sm:text-[44px] lg:text-[48px] font-extrabold leading-[1.12] tracking-tight text-slate-900 m-0"
+              className="text-[26px] xs:text-[30px] sm:text-[38px] lg:text-[46px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0"
               delay={0.15}
             />
           </motion.div>
@@ -62,7 +62,7 @@ export default function Challenge() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             custom={1}
-            className="lg:col-span-5 text-[15px] sm:text-[16px] leading-relaxed text-slate-500 m-0 lg:pt-14 font-normal"
+            className="lg:col-span-5 text-[14px] sm:text-[15.5px] leading-relaxed text-slate-500 m-0 lg:pt-14 font-normal"
           >
             Africa's temperature-sensitive economy depends on fragmented, expensive infrastructure. Businesses are forced to choose between massive capital costs and high operational risk.
           </motion.p>
@@ -166,13 +166,13 @@ export default function Challenge() {
               >
                 {/* Stat Numeral */}
                 <div>
-                  <span className="text-[44px] sm:text-[50px] font-extrabold tracking-tight text-slate-900 leading-none block mb-4 group-hover:text-[rgb(0,86,184)] transition-colors duration-300">
+                  <span className="text-[34px] xs:text-[38px] sm:text-[46px] lg:text-[50px] font-extrabold tracking-tight text-slate-900 leading-none block mb-3 sm:mb-4 group-hover:text-[rgb(0,86,184)] transition-colors duration-300">
                     {item.value}
                   </span>
                 </div>
 
                 {/* Description */}
-                <p className="text-[13.5px] sm:text-[14px] leading-relaxed text-slate-500 m-0 font-normal">
+                <p className="text-[13px] sm:text-[14px] leading-relaxed text-slate-500 m-0 font-normal">
                   {item.desc}
                 </p>
               </motion.div>

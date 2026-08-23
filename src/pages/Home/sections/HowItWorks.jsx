@@ -5,7 +5,7 @@ import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 export default function HowItWorks() {
   return (
-    <section className="relative z-10 bg-[#f8f9fa] border-t border-neutral-200/50 px-6 lg:px-16 py-24 lg:py-32">
+    <section className="relative z-10 bg-[#f8f9fa] border-t border-neutral-200/50 px-4 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-32">
       <div className="max-w-6xl mx-auto">
         {/* ── Header ── */}
         <div className="text-left mb-16 lg:mb-20">
@@ -23,7 +23,7 @@ export default function HowItWorks() {
             as="h2"
             theme="light"
             text="How a Dara Climate-Smart Shipment Works"
-            className="text-[36px] lg:text-[44px] font-extrabold leading-[1.15] tracking-tight text-neutral-900 m-0 mb-4"
+            className="text-[26px] xs:text-[30px] sm:text-[36px] lg:text-[44px] font-extrabold leading-[1.15] tracking-tight text-neutral-900 m-0 mb-3 sm:mb-4"
             delay={0.15}
           />
           <motion.p
@@ -32,7 +32,7 @@ export default function HowItWorks() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             custom={2}
-            className="text-[16px] leading-relaxed text-neutral-500 max-w-[620px] m-0"
+            className="text-[14px] sm:text-[16px] leading-relaxed text-neutral-500 max-w-[620px] m-0"
           >
             A seamless journey orchestrated from booking to final receipt, ensuring complete temperature preservation and tracking.
           </motion.p>

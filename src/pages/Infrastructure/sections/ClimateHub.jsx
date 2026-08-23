@@ -8,7 +8,7 @@ export default function ClimateHub() {
   const [booked, setBooked] = useState(false)
 
   return (
-    <section className="relative z-10 bg-[#fbfbfa] border-t border-slate-200/50 px-6 lg:px-16 py-24 lg:py-32">
+    <section className="relative z-10 bg-[#fbfbfa] border-t border-slate-200/50 px-4 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-32">
       <div className="max-w-6xl mx-auto">
         {/* ── Section Header ── */}
         <div className="text-left mb-14 max-w-xl">
@@ -24,7 +24,7 @@ export default function ClimateHub() {
           <WordColorReveal
             text="Climate Hub Operations"
             as="h2"
-            className="text-[36px] sm:text-[46px] font-extrabold leading-[1.12] tracking-tight text-slate-900 m-0 mb-3"
+            className="text-[26px] xs:text-[30px] sm:text-[36px] lg:text-[46px] font-extrabold leading-[1.12] tracking-tight text-slate-900 m-0 mb-3"
             wordColorMap={{
               Climate: 'rgb(0, 86, 184)',
             }}
@@ -35,7 +35,7 @@ export default function ClimateHub() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             custom={2}
-            className="text-[15px] sm:text-[16px] leading-relaxed text-slate-500 m-0 font-normal"
+            className="text-[14px] sm:text-[16px] leading-relaxed text-slate-500 m-0 font-normal"
           >
             Decentralized solar cooling, fleet dispatch, and live telemetry orchestrated in one platform.
           </motion.p>

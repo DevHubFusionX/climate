@@ -1,9 +1,10 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import heroBg from '../../../assets/images/AdobeStock_1579974778.jpeg'
-import { fadeInUp, buttonHover, buttonTap } from '../../../utils/motion'
+import { fadeInUp } from '../../../utils/motion'
 import WordColorReveal from '../../../components/ui/WordColorReveal'
 import Button from '../../../components/ui/Button'
+import SkewButton from '../../../components/ui/SkewButton'
 
 export default function Hero() {
   return (
@@ -35,21 +36,31 @@ export default function Hero() {
                 initial="hidden"
                 animate="visible"
                 custom={0.1}
-                className="mb-6 inline-flex items-center gap-2 text-[11px] font-bold tracking-[1.5px] uppercase text-white/60"
+                className="mb-4 sm:mb-6 inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-bold tracking-[1.5px] uppercase text-white/70"
               >
-                CLIMATE INFRASTRUCTURE &amp; IMPACT
+                Solar Refrigeration &bull; Electric Mobility &bull; Intelligent Cold Infrastructure
               </motion.div>
 
               {/* Headline */}
               <WordColorReveal
                 as="h1"
-                text="Building the Clean Infrastructure Behind Africa’s Economy."
+                theme="dark"
+                trigger="load"
+                text={[
+                  "Building the Clean",
+                  "Infrastructure Behind",
+                  "Africa's Economy."
+                ]}
                 delay={0.25}
                 stagger={0.09}
                 duration={0.65}
                 baseColor="rgba(255, 255, 255, 0.2)"
                 revealColor="#ffffff"
-                className="m-0 text-[42px] font-extrabold leading-[1.12] tracking-[-1.5px] text-white sm:text-[48px] lg:text-[56px]"
+                className="m-0 text-[28px] xs:text-[34px] sm:text-[44px] md:text-[50px] lg:text-[56px] font-extrabold leading-[1.12] tracking-tight text-white"
+                wordColorMap={{
+                  Clean: '#4ade80',
+                  Infrastructure: 'rgb(0, 86, 184)',
+                }}
               />
             </div>
 
@@ -57,15 +68,17 @@ export default function Hero() {
             <div className="lg:pt-10">
               <WordColorReveal
                 as="p"
-                text="Solar refrigeration. Electric mobility. Intelligent cold infrastructure. One connected network to move and preserve temperature-sensitive products."
-                delay={0.7}
-                stagger={0.03}
-                duration={0.5}
+                theme="dark"
+                trigger="load"
+                text="Dara is building a climate-smart infrastructure network that combines renewable-powered refrigeration, electric refrigerated vehicles, distributed cold storage, IoT intelligence and logistics technology to help Africa move and preserve more temperature-sensitive products while progressively reducing diesel dependence."
+                delay={0.65}
+                stagger={0.02}
+                duration={0.45}
                 baseColor="rgba(255, 255, 255, 0.25)"
                 revealColor="rgba(255, 255, 255, 0.88)"
                 blur={false}
                 yOffset={4}
-                className="mb-8 max-w-[460px] text-[16px] leading-relaxed text-white/85 sm:text-[18px]"
+                className="mb-6 sm:mb-8 max-w-[480px] text-[13.5px] sm:text-[15.5px] lg:text-[17px] leading-relaxed text-white/85"
               />
 
               {/* Actions */}
@@ -83,14 +96,11 @@ export default function Hero() {
                   iconBg="#ffffff"
                   dotColor="rgb(0, 86, 184)"
                 />
-                <motion.a
-                  whileHover={buttonHover}
-                  whileTap={buttonTap}
-                  href="#stack"
-                  className="inline-block rounded-full border border-white/30 bg-white/10 px-7 py-3.5 text-[14px] font-semibold text-white no-underline backdrop-blur-sm hover:bg-white/20 transition-colors duration-200"
-                >
-                  Explore Infrastructure
-                </motion.a>
+                <SkewButton
+                  text="Explore Climate Technology"
+                  to="/"
+                  variant="hero"
+                />
               </motion.div>
             </div>
           </div>

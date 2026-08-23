@@ -36,7 +36,7 @@ export default function Hero() {
                 initial="hidden"
                 animate="visible"
                 custom={0.1}
-                className="mb-6 inline-flex items-center gap-2 text-[11px] font-bold tracking-[1.5px] uppercase text-white/70"
+                className="mb-4 sm:mb-6 inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-bold tracking-[1.5px] uppercase text-white/70"
               >
                 Clean Energy &bull; Intelligent Refrigeration &bull; Smarter Movement
               </motion.div>
@@ -56,7 +56,7 @@ export default function Hero() {
                 duration={0.65}
                 baseColor="rgba(255, 255, 255, 0.2)"
                 revealColor="#ffffff"
-                className="m-0 text-[48px] font-extrabold leading-[1.12] tracking-[-1.2px] text-white md:text-[42px] sm:text-[34px]"
+                className="m-0 text-[28px] xs:text-[34px] sm:text-[44px] md:text-[50px] lg:text-[56px] font-extrabold leading-[1.12] tracking-[-1.2px] text-white"
                 wordColorMap={{
                   'Climate-Smart': '#4ade80',
                 }}
@@ -78,7 +78,7 @@ export default function Hero() {
                 revealColor="rgba(255, 255, 255, 0.88)"
                 blur={false}
                 yOffset={4}
-                className="mb-9 max-w-[500px] text-[16px] sm:text-[17px] leading-relaxed text-white/85"
+                className="mb-6 sm:mb-9 max-w-[500px] text-[13.5px] sm:text-[15.5px] lg:text-[17px] leading-relaxed text-white/85"
               />
 
               {/* CTA buttons */}

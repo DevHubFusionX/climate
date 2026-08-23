@@ -28,7 +28,7 @@ const flywheelSteps = [
 
 export default function ClimateFlywheel() {
   return (
-    <section className="relative z-10 bg-[#f8f9fa] border-t border-slate-200/50 px-6 lg:px-16 py-24 lg:py-32">
+    <section className="relative z-10 bg-[#f8f9fa] border-t border-slate-200/50 px-4 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-32">
       <div className="max-w-6xl mx-auto">
         {/* ── Section Header ── */}
         <div className="text-left mb-16 lg:mb-20 max-w-2xl">
@@ -44,7 +44,7 @@ export default function ClimateFlywheel() {
           <WordColorReveal
             text="The Dara Climate Flywheel"
             as="h2"
-            className="text-[34px] sm:text-[42px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0 mb-4"
+            className="text-[26px] xs:text-[30px] sm:text-[36px] lg:text-[44px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0 mb-3 sm:mb-4"
             wordColorMap={{
               Climate: 'rgb(0, 86, 184)',
               Flywheel: '#4ade80',
@@ -56,7 +56,7 @@ export default function ClimateFlywheel() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             custom={2}
-            className="text-[15px] sm:text-[16px] leading-relaxed text-slate-500 m-0 font-normal"
+            className="text-[14px] sm:text-[16px] leading-relaxed text-slate-500 m-0 font-normal"
           >
             Commercial growth directly reinforces climate efficiency. As shipment volume expands, infrastructure utilization rises, driving down costs and emissions simultaneously.
           </motion.p>

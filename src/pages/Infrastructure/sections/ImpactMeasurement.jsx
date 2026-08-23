@@ -51,7 +51,7 @@ const metrics = [
 
 export default function ImpactMeasurement() {
   return (
-    <section className="relative z-10 bg-[#fbfbfa] border-t border-slate-200/50 px-6 lg:px-16 py-24 lg:py-32">
+    <section className="relative z-10 bg-[#fbfbfa] border-t border-slate-200/50 px-4 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-32">
       <div className="max-w-6xl mx-auto">
         {/* ── Section Header ── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-start">
@@ -67,7 +67,7 @@ export default function ImpactMeasurement() {
             <WordColorReveal
               text="Turning commercial activity into climate impact."
               as="h2"
-              className="text-[34px] sm:text-[42px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0"
+              className="text-[26px] xs:text-[30px] sm:text-[36px] lg:text-[44px] font-extrabold leading-[1.15] tracking-tight text-slate-900 m-0 mb-3 sm:mb-0"
               wordColorMap={{
                 commercial: 'rgb(0, 86, 184)',
                 climate: '#4ade80',
@@ -83,7 +83,7 @@ export default function ImpactMeasurement() {
             custom={1}
             className="lg:pt-8"
           >
-            <p className="text-[15px] sm:text-[16px] leading-relaxed text-slate-500 m-0 font-normal">
+            <p className="text-[14px] sm:text-[16px] leading-relaxed text-slate-500 m-0 font-normal">
               Real data from every cold room, route, and kilowatt-hour. We quantify emissions prevented, product preserved, and diesel displaced across the network.
             </p>
           </motion.div>

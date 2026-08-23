@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Button from '../ui/Button'
+import SkewButton from '../ui/SkewButton'
 
-function useVisible(threshold = 0.1) {
+function useVisible(threshold = 0.08) {
   const [visible, setVisible] = useState(false)
   const ref = useRef(null)
   useEffect(() => {
@@ -65,7 +67,7 @@ export default function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="relative z-10 bg-[rgb(0,86,184)] text-white px-6 sm:px-12 lg:px-20 pt-16 md:pt-24 pb-12 font-sans overflow-hidden border-t border-white/10"
+      className="relative z-10 bg-[rgb(0,86,184)] text-white px-4 sm:px-10 lg:px-20 pt-14 sm:pt-20 md:pt-24 pb-12 font-sans overflow-hidden border-t border-white/10"
       style={{
         background: 'linear-gradient(175deg, rgb(0, 86, 184) 0%, rgb(0, 58, 135) 60%, rgb(0, 32, 90) 100%)'
       }}
@@ -73,7 +75,7 @@ export default function Footer() {
       {/* Background ambient lighting */}
       <div
         className="pointer-events-none absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full opacity-20"
-        style={{ background: 'radial-gradient(circle, rgba(74, 222, 128, 0.4) 0%, rgba(0, 86, 184, 0) 70%)' }}
+        style={{ background: 'radial-gradient(circle, rgba(74, 222, 128, 0.4) 0%, rgba(0, 86, 184) 0%)' }}
       />
       <div
         className="pointer-events-none absolute bottom-0 left-1/4 w-[500px] h-[300px] rounded-full opacity-15"
@@ -83,28 +85,28 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto relative z-10">
 
         {/* ── TOP SECTION: Large Headline & Action ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pb-12 md:pb-16 border-b border-white/15">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pb-10 md:pb-16 border-b border-white/15">
           <div className="lg:col-span-8 flex flex-col items-start text-left">
-            <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[1.5px] uppercase text-white/50 mb-4">
+            <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[1.5px] uppercase text-white/60 mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4ade80]" />
               Climate-Smart Cold Chain
             </div>
-            <h2 className="text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold leading-[1.12] tracking-tight text-white m-0 max-w-2xl">
+            <h2 className="text-[24px] xs:text-[28px] sm:text-[38px] lg:text-[48px] font-extrabold leading-[1.15] tracking-tight text-white m-0 max-w-2xl">
               Start moving and preserving with Dara.
             </h2>
             <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-4">
-              <a
-                href="#partner"
-                className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-[rgb(0,86,184)] hover:bg-blue-50 active:scale-98 font-bold rounded-full text-sm transition-all duration-200 shadow-[0_4px_20px_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
-              >
-                Partner with Dara
-              </a>
-              <a
-                href="#technology"
-                className="inline-flex items-center justify-center px-7 py-3.5 border border-white/30 text-white hover:bg-white/10 active:scale-98 font-semibold rounded-full text-sm transition-all duration-200 hover:-translate-y-0.5"
-              >
-                Explore Technology
-              </a>
+              <Button
+                text="Partner with Dara"
+                href="mailto:hello@daraexpress.com?subject=Partner%20With%20Dara"
+                variant="white"
+                iconBg="#0056b8"
+                dotColor="#ffffff"
+              />
+              <SkewButton
+                text="Explore Technology"
+                to="/"
+                variant="hero"
+              />
             </div>
           </div>
 
@@ -211,8 +213,8 @@ export default function Footer() {
         </div>
 
         {/* ── BOTTOM SHOWPIECE: Wordmark with Animated Refrigerated Truck ── */}
-        <div className="hidden md:flex w-full items-center justify-center py-16 select-none overflow-hidden text-center relative">
-          <div className="flex items-center justify-center gap-4 group transition-all duration-700 cursor-default relative">
+        <div className="flex w-full items-center justify-center py-10 md:py-16 select-none overflow-hidden text-center relative">
+          <div className="flex items-center justify-center gap-2 sm:gap-4 group transition-all duration-700 cursor-default relative">
 
             {/* Letter reveal */}
             <div className="flex items-center select-none tracking-tighter relative z-0">
@@ -222,7 +224,7 @@ export default function Footer() {
                 return (
                   <span
                     key={index}
-                    className="inline-block font-black text-white/95 leading-none tracking-tighter text-[8vw] select-none transition-all duration-700"
+                    className="inline-block font-black text-white/95 leading-none tracking-tighter text-[9vw] md:text-[8vw] select-none transition-all duration-700"
                     style={{
                       textShadow: '0px 10px 35px rgba(0, 0, 0, 0.25)',
                       whiteSpace: char === ' ' ? 'pre' : 'normal',
@@ -250,7 +252,7 @@ export default function Footer() {
             >
               {/* Electric / Speed lines fading out */}
               <div
-                className="absolute right-full mr-2 flex flex-col gap-1 items-end transition-opacity duration-1000"
+                className="absolute right-full mr-2 hidden sm:flex flex-col gap-1 items-end transition-opacity duration-1000"
                 style={{ opacity: visible ? 0 : 0.85, transitionDelay: '2.4s' }}
               >
                 <div className="w-16 h-[2.5px] bg-gradient-to-l from-[#4ade80] to-transparent rounded-full" />
@@ -262,7 +264,7 @@ export default function Footer() {
               <svg
                 viewBox="0 0 612 612"
                 fill="currentColor"
-                className="w-[6vw] h-[6vw] text-white/90 drop-shadow-[0_8px_24px_rgba(0,0,0,0.2)]"
+                className="w-[8vw] h-[8vw] md:w-[6vw] md:h-[6vw] text-white/90 drop-shadow-[0_8px_24px_rgba(0,0,0,0.2)]"
               >
                 <g>
                   <path d="M226.764,375.35c-28.249,0-51.078,22.91-51.078,51.16c0,28.166,22.829,51.078,51.078,51.078s51.078-22.912,51.078-51.078 C277.841,398.26,255.013,375.35,226.764,375.35z M226.764,452.049c-14.125,0-25.54-11.498-25.54-25.541 c0-14.123,11.415-25.539,25.54-25.539c14.124,0,25.539,11.416,25.539,25.539C252.302,440.551,240.888,452.049,226.764,452.049z M612,337.561v54.541c0,13.605-11.029,24.635-24.636,24.635h-26.36c-4.763-32.684-32.929-57.812-66.927-57.812 c-33.914,0-62.082,25.129-66.845,57.812H293.625c-4.763-32.684-32.93-57.812-66.845-57.812c-33.915,0-62.082,25.129-66.845,57.812 h-33.012c-13.606,0-24.635-11.029-24.635-24.635v-54.541H612L612,337.561z M494.143,375.35c-28.249,0-51.16,22.91-51.16,51.16 c0,28.166,22.912,51.078,51.16,51.078c28.166,0,51.077-22.912,51.077-51.078C545.22,398.26,522.309,375.35,494.143,375.35z M494.143,452.049c-14.125,0-25.539-11.498-25.539-25.541c0-14.123,11.414-25.539,25.539-25.539 c14.042,0,25.539,11.416,25.539,25.539C519.682,440.551,508.185,452.049,494.143,452.049z M602.293,282.637l-96.817-95.751 c-6.159-6.077-14.453-9.526-23.076-9.526h-48.86v-18.313c0-13.631-11.004-24.635-24.635-24.635H126.907 c-13.55,0-24.635,11.005-24.635,24.635v3.86L2.3,174.429l177.146,23.068L0,215.323l178.814,25.423L0,256.25l102.278,19.29 l-0.007,48.403h509.712v-17.985C611.983,297.171,608.452,288.796,602.293,282.637z M560.084,285.839h-93.697 c-2.135,0-3.86-1.724-3.86-3.859v-72.347c0-2.135,1.725-3.86,3.86-3.86h17.82c0.985,0,1.971,0.411,2.71,1.068l75.796,72.347 C565.257,281.569,563.532,285.839,560.084,285.839z"/>
