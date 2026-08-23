@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Sun, Truck, Activity, ArrowRight } from 'lucide-react'
+import { Sun, Truck, Activity, ArrowRight, Radio } from 'lucide-react'
 import { fadeInUp, cardVariant, cardHover, buttonHover, buttonTap, viewportConfig } from '../../../utils/motion'
 import WordColorReveal from '../../../components/ui/WordColorReveal'
 import Button from '../../../components/ui/Button'

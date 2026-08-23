@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ArrowRight } from 'lucide-react'
-import faviconSvg from '../../assets/favicon.svg'
 import Button from '../ui/Button'
 
 export default function Navbar() {
@@ -73,16 +72,13 @@ export default function Navbar() {
           <Link
             to="/"
             aria-label="Dara Home"
-            className="flex items-center gap-2.5 transition-all duration-200 hover:-translate-y-px hover:opacity-90 no-underline shrink-0"
+            className="flex items-center transition-all duration-200 hover:-translate-y-px hover:opacity-90 no-underline shrink-0"
           >
             <img
-              src={faviconSvg}
-              alt="Dara logo icon"
-              className="w-8 h-8 rounded-full shadow-sm"
+              src="/icons/Dara.svg"
+              alt="Dara logo"
+              className="h-7 sm:h-8 w-auto object-contain brightness-0 invert"
             />
-            <span className="text-[20px] sm:text-[22px] font-extrabold tracking-tight text-white leading-none">
-              dara<span className="text-[#4ade80]">.</span>
-            </span>
           </Link>
 
           {/* Desktop Nav Links */}
@@ -164,16 +160,13 @@ export default function Navbar() {
                     to="/"
                     onClick={() => setSidebarOpen(false)}
                     aria-label="Dara Home"
-                    className="flex items-center gap-2.5 no-underline"
+                    className="flex items-center no-underline"
                   >
                     <img
-                      src={faviconSvg}
-                      alt="Dara logo icon"
-                      className="w-8 h-8 rounded-full shadow-sm"
+                      src="/icons/Dara.svg"
+                      alt="Dara logo"
+                      className="h-7 w-auto object-contain"
                     />
-                    <span className="text-[20px] font-extrabold tracking-tight text-[rgb(0,86,184)] leading-none">
-                      dara<span className="text-[#16a34a]">.</span>
-                    </span>
                   </Link>
 
                   <button
