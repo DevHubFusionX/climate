@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { fadeInUp, cardVariant, cardHover, viewportConfig } from '../../../utils/motion'
 import WordColorReveal from '../../../components/ui/WordColorReveal'
@@ -61,22 +61,34 @@ const capabilities = [
 ]
 
 export default function DaraOS() {
+  const [activeSlide, setActiveSlide] = useState(0)
+  const sliderRef = useRef(null)
+
+  const handleScroll = () => {
+    if (sliderRef.current) {
+      const { scrollLeft, offsetWidth } = sliderRef.current
+      const cardWidth = offsetWidth * 0.82
+      const index = Math.round(scrollLeft / cardWidth)
+      setActiveSlide(Math.min(Math.max(index, 0), capabilities.length - 1))
+    }
+  }
+
   return (
     <section
       id="daraos"
-      className="relative z-10 border-t border-slate-100 px-4 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-32"
+      className="relative z-10 border-t border-slate-100 px-4 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-32 overflow-hidden"
       style={{ background: 'rgb(0, 86, 184)' }}
     >
       <div className="max-w-6xl mx-auto">
         {/* ── Header ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-20 items-end">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 mb-12 sm:mb-20 items-end">
           <motion.div
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
           >
-            <div className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[1.2px] uppercase text-white/50 mb-5">
+            <div className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[1.2px] uppercase text-white/50 mb-4 sm:mb-5">
               <span className="w-4 h-4 bg-white/15 rounded-[4px] flex items-center justify-center">
                 <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
                   <rect width="8" height="8" rx="1.5" fill="white" fillOpacity="0.6" />
@@ -104,8 +116,57 @@ export default function DaraOS() {
           </motion.p>
         </div>
 
-        {/* ── 6-Card Grid with Stagger Delay ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* ── Mobile View: Horizontal Touch-Snap Carousel (Hidden on Desktop) ── */}
+        <div className="block md:hidden">
+          <div
+            ref={sliderRef}
+            onScroll={handleScroll}
+            className="flex overflow-x-auto snap-x snap-mandatory scrollbar-none gap-3.5 -mx-4 px-4 pb-2"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {capabilities.map((item) => (
+              <div
+                key={item.title}
+                className="flex-shrink-0 w-[82vw] max-w-[300px] snap-start bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/15 flex flex-col justify-between min-h-[190px] shadow-sm"
+              >
+                <div>
+                  <div className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center mb-4">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-[17px] font-bold text-white m-0 mb-2 tracking-tight">
+                    {item.title}
+                  </h3>
+                  <p className="text-[13px] leading-relaxed text-white/75 m-0 font-normal">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Swipe Indicator Dots */}
+          <div className="flex items-center justify-center gap-1.5 pt-5">
+            {capabilities.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => {
+                  if (sliderRef.current) {
+                    const cardWidth = sliderRef.current.offsetWidth * 0.82
+                    sliderRef.current.scrollTo({ left: i * cardWidth, behavior: 'smooth' })
+                  }
+                }}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  activeSlide === i ? 'w-6 bg-[#4ade80]' : 'w-1.5 bg-white/30'
+                }`}
+                aria-label={`Slide ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* ── Desktop View: 3x2 Grid (Hidden on Mobile) ── */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {capabilities.map((item, index) => (
             <motion.div
               key={item.title}
@@ -135,3 +196,4 @@ export default function DaraOS() {
     </section>
   )
 }
+
