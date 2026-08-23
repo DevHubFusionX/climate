@@ -28,7 +28,7 @@ const pillars = [
 
 export default function InfrastructureOpportunity() {
   return (
-    <section className="relative z-10 bg-white rounded-t-3xl px-4 sm:px-8 lg:px-16 pt-16 sm:pt-24 pb-16 sm:pb-20">
+    <section className="relative z-10 bg-white rounded-t-none sm:rounded-t-3xl px-4 sm:px-8 lg:px-16 pt-16 sm:pt-24 pb-16 sm:pb-20">
       <div className="max-w-6xl mx-auto">
         {/* ── Header ── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-start">

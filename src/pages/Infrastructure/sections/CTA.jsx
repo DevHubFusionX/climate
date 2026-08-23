@@ -16,13 +16,13 @@ export default function CTA() {
   ]
 
   return (
-    <section id="partner-cta" className="relative z-10 mx-3 sm:mx-6 lg:mx-8 my-14 sm:my-20">
+    <section id="partner-cta" className="relative z-10 w-full mx-0 sm:mx-6 lg:mx-8 my-8 sm:my-20">
       <motion.div
         variants={fadeInUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        className="relative w-full rounded-[28px] sm:rounded-[40px] overflow-hidden shadow-2xl"
+        className="relative w-full rounded-none sm:rounded-[40px] overflow-hidden shadow-2xl"
         style={{
           backgroundImage: `url(${ctaImg})`,
           backgroundSize: 'cover',
@@ -47,9 +47,9 @@ export default function CTA() {
         />
 
         {/* Main Content Container */}
-        <div className="relative z-10 w-full p-6 sm:p-12 lg:p-16 flex flex-col justify-between min-h-[460px] lg:min-h-[540px]">
+        <div className="relative z-10 w-full p-6 sm:p-12 lg:p-16 flex flex-col justify-between min-h-[360px] sm:min-h-[460px] lg:min-h-[540px]">
           {/* ── Top / Middle Row: 2-Column Split ── */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-10 lg:mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start mb-6 sm:mb-10 lg:mb-16">
             {/* Left: Big Headline & Copy */}
             <div className="lg:col-span-8 text-left">
               <WordColorReveal
@@ -59,25 +59,30 @@ export default function CTA() {
                   "Build Africa's next",
                   'cold chain with us.',
                 ]}
-                className="text-[26px] xs:text-[32px] sm:text-[42px] lg:text-[54px] font-extrabold text-white leading-[1.08] tracking-tight m-0 mb-4 sm:mb-5"
+                className="text-[24px] xs:text-[28px] sm:text-[42px] lg:text-[54px] font-extrabold text-white leading-[1.08] tracking-tight m-0 mb-3 sm:mb-5"
                 delay={0.15}
                 wordColorMap={{
                   'cold': 'rgb(0, 86, 184)',
                   'chain': '#4ade80',
                 }}
               />
-              <p className="text-[13.5px] sm:text-[15.5px] leading-relaxed text-white/80 m-0 max-w-xl font-normal">
-                We are building at the intersection of climate technology, clean energy, electric mobility, cold-chain infrastructure and logistics software. Join us in building a cleaner, smarter and more resilient cold chain for Africa.
+              <p className="text-[13px] sm:text-[15.5px] leading-relaxed text-white/80 m-0 max-w-xl font-normal">
+                <span className="hidden sm:inline">
+                  We are building at the intersection of climate technology, clean energy, electric mobility, cold-chain infrastructure and logistics software. Join us in building a cleaner, smarter and more resilient cold chain for Africa.
+                </span>
+                <span className="inline sm:hidden">
+                  Join us at the intersection of clean tech, renewable cooling, and EV logistics across Africa.
+                </span>
               </p>
             </div>
 
-            {/* Right: Partner Ecosystem Tags */}
-            <div className="lg:col-span-4 flex flex-col lg:items-end justify-start pt-2 lg:pt-4">
-              <div className="flex flex-wrap lg:flex-col gap-2.5 sm:gap-3.5 text-left lg:text-right">
+            {/* Right: Partner Ecosystem Tags (Hidden on Mobile) */}
+            <div className="hidden lg:flex lg:col-span-4 flex-col items-end justify-start pt-4">
+              <div className="flex flex-col gap-3 text-right">
                 {partnerTypes.map((tag) => (
                   <span
                     key={tag}
-                    className="text-[11px] sm:text-[12px] font-bold tracking-[1.5px] text-white/75 bg-white/5 lg:bg-transparent px-3 py-1 lg:px-0 lg:py-0 rounded-full uppercase hover:text-white transition-colors"
+                    className="text-[12px] font-bold tracking-[1.5px] text-white/75 uppercase hover:text-white transition-colors"
                   >
                     {tag}
                   </span>

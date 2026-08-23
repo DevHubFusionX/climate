@@ -35,7 +35,7 @@ const capabilities = [
 export default function Vision() {
   return (
     <section
-      className="relative z-10 mx-3 sm:mx-6 lg:mx-8 my-8 sm:my-10 rounded-[24px] sm:rounded-[36px] overflow-hidden shadow-sm"
+      className="relative z-10 w-full mx-0 sm:mx-6 lg:mx-8 my-8 sm:my-10 rounded-none sm:rounded-[36px] overflow-hidden shadow-sm"
       style={{
         background: 'linear-gradient(145deg, rgb(0, 75, 165) 0%, rgb(0, 52, 125) 60%, rgb(3, 30, 80) 100%)',
       }}

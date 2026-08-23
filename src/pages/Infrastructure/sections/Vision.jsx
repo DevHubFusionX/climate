@@ -15,7 +15,7 @@ const visionPillars = [
 export default function Vision() {
   return (
     <section
-      className="relative z-10 rounded-[24px] sm:rounded-[36px] mx-3 sm:mx-6 lg:mx-8 my-8 sm:my-12 overflow-hidden"
+      className="relative z-10 w-full mx-0 sm:mx-6 lg:mx-8 my-8 sm:my-12 rounded-none sm:rounded-[36px] overflow-hidden"
       style={{ background: 'rgb(0, 86, 184)' }}
     >
       {/* Subtle radial glow */}

@@ -32,7 +32,7 @@ export default function Challenge() {
   ]
 
   return (
-    <section className="relative z-10 bg-[#fbfbfa] rounded-t-3xl border-t border-slate-200/60 px-4 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-32">
+    <section className="relative z-10 bg-[#fbfbfa] rounded-t-none sm:rounded-t-3xl border-t border-slate-200/60 px-4 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-32">
       <div className="max-w-6xl mx-auto">
         {/* ── Top Header Row ── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-start">
