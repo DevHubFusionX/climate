@@ -3,6 +3,8 @@ import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ArrowRight } from 'lucide-react'
 import Button from '../ui/Button'
+import whiteLogo from '../../assets/white.svg'
+import blackLogo from '../../assets/black.svg'
 
 export default function Navbar() {
   const [visible, setVisible] = useState(true)
@@ -75,9 +77,9 @@ export default function Navbar() {
             className="flex items-center transition-all duration-200 hover:-translate-y-px hover:opacity-90 no-underline shrink-0"
           >
             <img
-              src="/icons/Dara.svg"
+              src={whiteLogo}
               alt="Dara logo"
-              className="h-7 sm:h-8 w-auto object-contain brightness-0 invert"
+              className="h-[18px] sm:h-[22px] w-auto object-contain"
             />
           </Link>
 
@@ -163,9 +165,9 @@ export default function Navbar() {
                     className="flex items-center no-underline"
                   >
                     <img
-                      src="/icons/Dara.svg"
+                      src={blackLogo}
                       alt="Dara logo"
-                      className="h-7 w-auto object-contain"
+                      className="h-[18px] sm:h-[20px] w-auto object-contain"
                     />
                   </Link>
 

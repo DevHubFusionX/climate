@@ -1,19 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-
-function useVisible(threshold = 0.08) {
-  const [visible, setVisible] = useState(false)
-  const ref = useRef(null)
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) setVisible(true) },
-      { threshold }
-    )
-    if (ref.current) obs.observe(ref.current)
-    return () => obs.disconnect()
-  }, [threshold])
-  return [ref, visible]
-}
+import whiteLogo from '../../assets/white.svg'
 
 const ecosystemLinks = [
   { label: 'Solar Refrigeration', to: '/' },
@@ -59,12 +46,8 @@ const contactInfo = [
 ]
 
 export default function Footer() {
-  const [footerRef, visible] = useVisible(0.08)
-  const wordmark = "Dara Climate"
-
   return (
     <footer
-      ref={footerRef}
       className="relative z-10 bg-[rgb(0,86,184)] text-white px-4 sm:px-10 lg:px-20 pt-8 sm:pt-12 pb-12 font-sans overflow-hidden border-t border-white/10"
       style={{
         background: 'linear-gradient(175deg, rgb(0, 86, 184) 0%, rgb(0, 58, 135) 60%, rgb(0, 32, 90) 100%)'
@@ -82,8 +65,12 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto relative z-10">
 
-        {/* ── MOBILE STREAMLINED CONTACT BAR (Mobile Only) ── */}
-        <div className="flex md:hidden flex-col gap-4 py-7 border-b border-white/15 text-left">
+        {/* ── MOBILE HEADER & CONTACT BAR (Mobile Only) ── */}
+        <div className="flex md:hidden flex-col gap-5 py-7 border-b border-white/15 text-left">
+          <Link to="/" aria-label="Dara Home" className="inline-block no-underline">
+            <img src={whiteLogo} alt="Dara logo" className="h-[20px] w-auto object-contain" />
+          </Link>
+
           <div className="flex flex-col gap-2.5 text-xs text-white/85">
             <a
               href="mailto:hello@daraexpress.com"
@@ -139,10 +126,20 @@ export default function Footer() {
         </div>
 
         {/* ── MIDDLE SECTION: Desktop Links Grid (Hidden on Mobile) ── */}
-        <div className="hidden md:grid grid-cols-4 gap-8 lg:gap-12 py-12 md:py-16 text-left border-b border-white/15">
+        <div className="hidden md:grid grid-cols-12 gap-8 lg:gap-12 py-12 md:py-16 text-left border-b border-white/15">
 
-          {/* Column 1: Ecosystem */}
-          <div className="col-span-1">
+          {/* Column 1: Brand & Mission */}
+          <div className="col-span-4 pr-6">
+            <Link to="/" aria-label="Dara Home" className="inline-block no-underline mb-4 transition-transform hover:-translate-y-0.5">
+              <img src={whiteLogo} alt="Dara logo" className="h-[24px] lg:h-[26px] w-auto object-contain" />
+            </Link>
+            <p className="text-xs sm:text-[13px] leading-relaxed text-white/75 max-w-xs m-0">
+              Building Africa's climate-smart cold chain through solar refrigeration, electric mobility, and intelligent IoT orchestration.
+            </p>
+          </div>
+
+          {/* Column 2: Ecosystem */}
+          <div className="col-span-2">
             <p className="text-white/40 text-[10px] font-bold tracking-[0.2em] uppercase mb-5">
               Ecosystem
             </p>
@@ -160,8 +157,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 2: Infrastructure */}
-          <div className="col-span-1">
+          {/* Column 3: Infrastructure */}
+          <div className="col-span-2">
             <p className="text-white/40 text-[10px] font-bold tracking-[0.2em] uppercase mb-5">
               Infrastructure
             </p>
@@ -179,8 +176,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Contact */}
-          <div className="col-span-1">
+          {/* Column 4: Direct Contact */}
+          <div className="col-span-2">
             <p className="text-white/40 text-[10px] font-bold tracking-[0.2em] uppercase mb-5">
               Direct Contact
             </p>
@@ -200,8 +197,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Connect */}
-          <div className="col-span-1">
+          {/* Column 5: Connect */}
+          <div className="col-span-2">
             <p className="text-white/40 text-[10px] font-bold tracking-[0.2em] uppercase mb-5">
               Connect
             </p>
@@ -228,68 +225,6 @@ export default function Footer() {
                 </svg>
                 Instagram
               </a>
-            </div>
-          </div>
-        </div>
-
-        {/* ── BOTTOM SHOWPIECE: Wordmark with Animated Refrigerated Truck ── */}
-        <div className="flex w-full items-center justify-center py-10 md:py-16 select-none overflow-hidden text-center relative">
-          <div className="flex items-center justify-center gap-2 sm:gap-4 group transition-all duration-700 cursor-default relative">
-
-            {/* Letter reveal */}
-            <div className="flex items-center select-none tracking-tighter relative z-0">
-              {wordmark.split('').map((char, index) => {
-                const totalChars = wordmark.length
-                const delay = 0.2 + (index / totalChars) * 1.8
-                return (
-                  <span
-                    key={index}
-                    className="inline-block font-black text-white/95 leading-none tracking-tighter text-[9vw] md:text-[8vw] select-none transition-all duration-700"
-                    style={{
-                      textShadow: '0px 10px 35px rgba(0, 0, 0, 0.25)',
-                      whiteSpace: char === ' ' ? 'pre' : 'normal',
-                      opacity: visible ? 1 : 0,
-                      transform: visible ? 'translateY(0)' : 'translateY(36px)',
-                      transitionDelay: `${delay}s`,
-                      transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-                    }}
-                  >
-                    {char}
-                  </span>
-                )
-              })}
-            </div>
-
-            {/* Refrigerated Clean Electric Truck SVG */}
-            <div
-              className="flex items-center relative z-10 self-center transition-all duration-[2200ms]"
-              style={{
-                transform: visible ? 'translateX(0)' : 'translateX(-50vw)',
-                opacity: visible ? 1 : 0,
-                transitionDelay: '0.2s',
-                transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-              }}
-            >
-              {/* Electric / Speed lines fading out */}
-              <div
-                className="absolute right-full mr-2 hidden sm:flex flex-col gap-1 items-end transition-opacity duration-1000"
-                style={{ opacity: visible ? 0 : 0.85, transitionDelay: '2.4s' }}
-              >
-                <div className="w-16 h-[2.5px] bg-gradient-to-l from-[#4ade80] to-transparent rounded-full" />
-                <div className="w-24 h-[3px] bg-gradient-to-l from-white/80 to-transparent rounded-full" />
-                <div className="w-12 h-[2px] bg-gradient-to-l from-[#4ade80] to-transparent rounded-full" />
-              </div>
-
-              {/* Truck SVG Icon */}
-              <svg
-                viewBox="0 0 612 612"
-                fill="currentColor"
-                className="w-[8vw] h-[8vw] md:w-[6vw] md:h-[6vw] text-white/90 drop-shadow-[0_8px_24px_rgba(0,0,0,0.2)]"
-              >
-                <g>
-                  <path d="M226.764,375.35c-28.249,0-51.078,22.91-51.078,51.16c0,28.166,22.829,51.078,51.078,51.078s51.078-22.912,51.078-51.078 C277.841,398.26,255.013,375.35,226.764,375.35z M226.764,452.049c-14.125,0-25.54-11.498-25.54-25.541 c0-14.123,11.415-25.539,25.54-25.539c14.124,0,25.539,11.416,25.539,25.539C252.302,440.551,240.888,452.049,226.764,452.049z M612,337.561v54.541c0,13.605-11.029,24.635-24.636,24.635h-26.36c-4.763-32.684-32.929-57.812-66.927-57.812 c-33.914,0-62.082,25.129-66.845,57.812H293.625c-4.763-32.684-32.93-57.812-66.845-57.812c-33.915,0-62.082,25.129-66.845,57.812 h-33.012c-13.606,0-24.635-11.029-24.635-24.635v-54.541H612L612,337.561z M494.143,375.35c-28.249,0-51.16,22.91-51.16,51.16 c0,28.166,22.912,51.078,51.16,51.078c28.166,0,51.077-22.912,51.077-51.078C545.22,398.26,522.309,375.35,494.143,375.35z M494.143,452.049c-14.125,0-25.539-11.498-25.539-25.541c0-14.123,11.414-25.539,25.539-25.539 c14.042,0,25.539,11.416,25.539,25.539C519.682,440.551,508.185,452.049,494.143,452.049z M602.293,282.637l-96.817-95.751 c-6.159-6.077-14.453-9.526-23.076-9.526h-48.86v-18.313c0-13.631-11.004-24.635-24.635-24.635H126.907 c-13.55,0-24.635,11.005-24.635,24.635v3.86L2.3,174.429l177.146,23.068L0,215.323l178.814,25.423L0,256.25l102.278,19.29 l-0.007,48.403h509.712v-17.985C611.983,297.171,608.452,288.796,602.293,282.637z M560.084,285.839h-93.697 c-2.135,0-3.86-1.724-3.86-3.859v-72.347c0-2.135,1.725-3.86,3.86-3.86h17.82c0.985,0,1.971,0.411,2.71,1.068l75.796,72.347 C565.257,281.569,563.532,285.839,560.084,285.839z"/>
-                </g>
-              </svg>
             </div>
           </div>
         </div>
