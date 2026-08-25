@@ -215,7 +215,7 @@ export default function Navbar() {
               <div className="pt-5 border-t border-slate-100 flex flex-col gap-4">
                 <Button
                   text="Ship with Dara"
-                  href="mailto:hello@daraexpress.com?subject=Ship%20With%20Dara"
+                  href="mailto:hello@darafort.com?subject=Ship%20With%20Dara"
                   variant="brand"
                   iconBg="#ffffff"
                   dotColor="rgb(0, 86, 184)"
@@ -223,12 +223,18 @@ export default function Navbar() {
                   onClick={() => setSidebarOpen(false)}
                 />
 
-                <div className="text-center text-xs text-slate-400">
+                <div className="text-center text-xs text-slate-400 flex flex-col gap-1">
                   <a
-                    href="mailto:hello@daraexpress.com"
+                    href="mailto:contact@darafort.com"
                     className="text-slate-600 font-mono hover:text-[rgb(0,86,184)] no-underline transition-colors"
                   >
-                    hello@daraexpress.com
+                    contact@darafort.com
+                  </a>
+                  <a
+                    href="mailto:hello@darafort.com"
+                    className="text-slate-600 font-mono hover:text-[rgb(0,86,184)] no-underline transition-colors"
+                  >
+                    hello@darafort.com
                   </a>
                 </div>
               </div>

@@ -50,7 +50,7 @@ export default function CTA() {
               <div className="mt-5 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-4 w-full sm:w-auto">
                 <Button
                   text="Partner with Dara"
-                  href="mailto:hello@daraexpress.com?subject=Partner%20With%20Dara"
+                  href="mailto:contact@darafort.com?subject=Partner%20With%20Dara"
                   variant="white"
                   iconBg="#0056b8"
                   dotColor="#ffffff"
