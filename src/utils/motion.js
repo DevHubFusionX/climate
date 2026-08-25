@@ -3,8 +3,8 @@ export const easeDara = [0.16, 1, 0.3, 1]
 // Optimized viewport detection for immediate, buttery-smooth trigger on mobile
 export const viewportConfig = {
   once: true,
-  amount: 0.05,
-  margin: '0px 0px -40px 0px',
+  amount: 0.02,
+  margin: '0px 0px -20px 0px',
 }
 
 export const fadeInUp = {

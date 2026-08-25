@@ -43,12 +43,12 @@ export default function Hero() {
           style={{ backgroundImage: `url(${heroBgSrc})` }}
         />
 
-        {/* Dark navy overlay */}
-        <div className="absolute inset-0 bg-[rgba(10,18,45,0.56)]" />
+        {/* Dark navy overlay for contrast & readability */}
+        <div className="absolute inset-0 bg-[rgba(10,18,45,0.78)]" />
 
         {/* Content — sits above bg + overlay */}
         <div className="relative z-10 flex h-full items-center">
-          <div className="mx-auto w-full max-w-[1240px] grid grid-cols-1 gap-10 px-6 lg:grid-cols-[1.25fr_1fr] lg:gap-20 lg:px-12">
+          <div className="mx-auto w-full max-w-[1240px] grid grid-cols-1 gap-8 px-6 lg:grid-cols-[1.3fr_1fr] lg:gap-16 lg:px-12">
             {/* Left column */}
             <div>
               {/* Badge pill */}
@@ -67,39 +67,37 @@ export default function Hero() {
                 as="h1"
                 theme="dark"
                 trigger="load"
-                text={[
-                  "Building Africa's",
-                  "Climate-Smart",
-                  "Cold Chain."
-                ]}
+                text="Building Africa's Climate-Smart Cold Chain."
                 delay={0.25}
                 stagger={0.09}
-                duration={0.65}
+                duration={0.75}
                 baseColor="rgba(255, 255, 255, 0.2)"
                 revealColor="#ffffff"
-                className="m-0 text-[28px] xs:text-[34px] sm:text-[44px] md:text-[50px] lg:text-[56px] font-extrabold leading-[1.12] tracking-[-1.2px] text-white"
+                className="m-0 text-[clamp(2.2rem,5vw,4.5rem)] lg:text-[clamp(3.5rem,7vw,7rem)] font-semibold leading-[0.95] tracking-[-0.06em] text-white"
                 wordColorMap={{
-                  'Climate-Smart': '#4ade80',
+                  "Cold": 'rgb(0, 86, 184)',
+                  "Chain.": 'rgb(0, 86, 184)'
                 }}
               />
             </div>
 
             {/* Right column */}
-            <div className="lg:pt-[44px]">
+            {/* Right column */}
+            <div className="flex flex-col justify-end lg:pb-3">
               {/* Sub-text with progressive word color illumination */}
               <WordColorReveal
                 as="p"
                 theme="dark"
                 trigger="load"
-                text="Dara is building a technology-enabled cold-chain ecosystem combining solar-powered refrigeration, electric refrigerated vans and trucks, IoT temperature monitoring, cold storage and intelligent logistics software to move and preserve temperature-sensitive products across our delivery network."
+                text="Combining off-grid solar refrigeration and electric transport under one native operating system to move and preserve critical cargo."
                 delay={0.65}
-                stagger={0.02}
-                duration={0.45}
+                stagger={0.06}
+                duration={0.75}
                 baseColor="rgba(255, 255, 255, 0.25)"
                 revealColor="rgba(255, 255, 255, 0.88)"
                 blur={false}
                 yOffset={4}
-                className="mb-6 sm:mb-9 max-w-[500px] text-[13.5px] sm:text-[15.5px] lg:text-[17px] leading-relaxed text-white/85"
+                className="mb-6 sm:mb-8 max-w-[480px] text-[13.5px] sm:text-[15.5px] lg:text-[17px] leading-relaxed text-white/85"
               />
 
               {/* CTA buttons */}

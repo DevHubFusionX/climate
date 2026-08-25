@@ -44,7 +44,7 @@ export default function Hero() {
         />
 
         {/* Dark navy overlay for contrast & readability */}
-        <div className="absolute inset-0 bg-[rgba(8,16,40,0.65)]" />
+        <div className="absolute inset-0 bg-[rgba(10,18,45,0.78)]" />
 
         {/* Content */}
         <div className="relative z-10 flex h-full items-center">
@@ -68,9 +68,8 @@ export default function Hero() {
                 theme="dark"
                 trigger="load"
                 text={[
-                  "Building the Clean",
-                  "Infrastructure Behind",
-                  "Africa's Economy."
+                  "Clean infrastructure.",
+                  "For Africa's economy."
                 ]}
                 delay={0.25}
                 stagger={0.09}
@@ -79,22 +78,23 @@ export default function Hero() {
                 revealColor="#ffffff"
                 className="m-0 text-[28px] xs:text-[34px] sm:text-[44px] md:text-[50px] lg:text-[56px] font-extrabold leading-[1.12] tracking-tight text-white"
                 wordColorMap={{
-                  Clean: '#4ade80',
-                  Infrastructure: 'rgb(0, 86, 184)',
+                  africas: 'rgb(0, 86, 184)',
+                  economy: 'rgb(0, 86, 184)',
                 }}
               />
             </div>
 
             {/* Right column */}
             <div className="lg:pt-10">
+              {/* Reduced description */}
               <WordColorReveal
                 as="p"
                 theme="dark"
                 trigger="load"
-                text="Dara is building a climate-smart infrastructure network that combines renewable-powered refrigeration, electric refrigerated vehicles, distributed cold storage, IoT intelligence and logistics technology to help Africa move and preserve more temperature-sensitive products while progressively reducing diesel dependence."
+                text="Combining solar cooling and electric transport into one intelligent, climate-smart network."
                 delay={0.65}
-                stagger={0.02}
-                duration={0.45}
+                stagger={0.06}
+                duration={0.75}
                 baseColor="rgba(255, 255, 255, 0.25)"
                 revealColor="rgba(255, 255, 255, 0.88)"
                 blur={false}

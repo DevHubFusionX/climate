@@ -71,8 +71,8 @@ export default function ImpactMeasurement() {
               delay={0.1}
               wordColorMap={{
                 commercial: 'rgb(0, 86, 184)',
-                climate: '#4ade80',
-                impact: '#4ade80',
+                climate: 'rgb(0, 86, 184)',
+                impact: 'rgb(0, 86, 184)',
               }}
             />
           </motion.div>

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { fadeInUp, viewportConfig } from '../../../utils/motion'
 import Button from '../../../components/ui/Button'
 import SkewButton from '../../../components/ui/SkewButton'
+import WordColorReveal from '../../../components/ui/WordColorReveal'
 
 export default function CTA() {
   return (
@@ -16,7 +17,7 @@ export default function CTA() {
         {/* Background ambient lighting */}
         <div
           className="pointer-events-none absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full opacity-20"
-          style={{ background: 'radial-gradient(circle, rgba(74, 222, 128, 0.4) 0%, rgba(0, 86, 184) 0%)' }}
+          style={{ background: 'radial-gradient(circle, rgba(147, 197, 253, 0.4) 0%, rgba(0, 86, 184) 0%)' }}
         />
         <div
           className="pointer-events-none absolute bottom-0 left-1/4 w-[500px] h-[300px] rounded-full opacity-15"
@@ -34,12 +35,18 @@ export default function CTA() {
             {/* Left Column: Eyebrow, Headline & CTA Buttons */}
             <div className="lg:col-span-8 flex flex-col items-start text-left">
               <div className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-bold tracking-[1.5px] uppercase text-white/60 mb-3 sm:mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#4ade80]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-300" />
                 Infrastructure &amp; Impact
               </div>
-              <h2 className="text-[22px] xs:text-[26px] sm:text-[38px] lg:text-[48px] font-extrabold leading-[1.15] tracking-tight text-white m-0 max-w-2xl">
-                Build Africa's next cold chain with us.
-              </h2>
+              <WordColorReveal
+                text="Build Africa's next cold chain with us."
+                as="h2"
+                theme="dark"
+                trigger="inView"
+                className="text-[22px] xs:text-[26px] sm:text-[38px] lg:text-[48px] font-extrabold leading-[1.15] tracking-tight text-white m-0 max-w-2xl"
+                revealColor="#ffffff"
+                baseColor="rgba(255, 255, 255, 0.3)"
+              />
               <div className="mt-5 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-4 w-full sm:w-auto">
                 <Button
                   text="Partner with Dara"
