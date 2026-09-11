@@ -126,10 +126,13 @@ export default function Button({
   }
 
   if (targetLink) {
+    const isExternal = targetLink.startsWith('http://') || targetLink.startsWith('https://')
     return (
       <motion.a
         href={targetLink}
         onClick={handleClick}
+        target={props.target || (isExternal ? '_blank' : undefined)}
+        rel={props.rel || (isExternal ? 'noopener noreferrer' : undefined)}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         className={commonClass}

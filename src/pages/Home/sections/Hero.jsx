@@ -110,7 +110,7 @@ export default function Hero() {
               >
                 <Button
                   text="Ship With Dara"
-                  href="#partner"
+                  href="https://www.darafort.com/"
                   variant="brand"
                   iconBg="#ffffff"
                   dotColor="rgb(0, 86, 184)"

@@ -109,7 +109,7 @@ export default function Navbar() {
 
             <Button
               text="Ship with Dara"
-              href="#partner"
+              href="https://www.darafort.com/"
               variant="brand"
               iconBg="#ffffff"
               dotColor="rgb(0, 86, 184)"
@@ -215,7 +215,7 @@ export default function Navbar() {
               <div className="pt-5 border-t border-slate-100 flex flex-col gap-4">
                 <Button
                   text="Ship with Dara"
-                  href="mailto:hello@darafort.com?subject=Ship%20With%20Dara"
+                  href="https://www.darafort.com/"
                   variant="brand"
                   iconBg="#ffffff"
                   dotColor="rgb(0, 86, 184)"

@@ -245,7 +245,7 @@ export default function Vision() {
             <div className="flex flex-wrap items-center gap-3.5">
               <Button
                 text="Ship With Dara"
-                href="#partner"
+                href="https://www.darafort.com/"
                 variant="white"
                 iconBg="rgb(0, 86, 184)"
                 dotColor="#ffffff"
