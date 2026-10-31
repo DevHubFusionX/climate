@@ -67,13 +67,13 @@ export default function Hero() {
                 as="h1"
                 theme="dark"
                 trigger="load"
-                text="Building Africa's Climate-Smart Cold Chain."
+                text={["Building Africa's", 'Climate-Smart Cold Chain.']}
                 delay={0.25}
                 stagger={0.09}
                 duration={0.75}
                 baseColor="rgba(255, 255, 255, 0.2)"
                 revealColor="#ffffff"
-                className="m-0 text-[clamp(2.2rem,5vw,4.5rem)] lg:text-[clamp(3.5rem,7vw,7rem)] font-semibold leading-[0.95] tracking-[-0.06em] text-white"
+                className="m-0 whitespace-nowrap text-[clamp(1.9rem,7vw,3rem)] lg:text-[clamp(2.5rem,4vw,3.5rem)] font-semibold leading-[1.05] tracking-[-0.05em] text-white"
                 wordColorMap={{
                   "Cold": 'rgb(0, 86, 184)',
                   "Chain.": 'rgb(0, 86, 184)'

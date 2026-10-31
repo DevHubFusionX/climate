@@ -5,6 +5,7 @@ import Ecosystem from './sections/Ecosystem'
 import DaraOS from './sections/DaraOS'
 import HowItWorks from './sections/HowItWorks'
 import Industries from './sections/Industries'
+import Clients from './sections/Clients'
 import ClimateImpact from './sections/ClimateImpact'
 import CTA from './sections/CTA'
 
@@ -19,6 +20,7 @@ export default function Home() {
         <DaraOS />
         <HowItWorks />
         <Industries />
+        <Clients />
         <ClimateImpact />
         <CTA />
       </div>
